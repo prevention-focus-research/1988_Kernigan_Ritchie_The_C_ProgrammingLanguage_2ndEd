@@ -10,3 +10,27 @@ main()
     printf("hello, world\n");
 }
 ```
+
+Running the program is system-dependent. On Unix, one creates a file ending wiht `".c"`, such as *hello.c*, then compile the program with the following command line statement:
+
+```
+$ cc hello.c
+```
+
+The compilation proceeds silently by default if the program did not err during compilation. The result of successful compilation is the executable named *a.out*. To run the executable, one executes the following statement on the command line:
+
+```
+$ a.out
+```
+
+When *a.out* is executed, the following is output to the console:
+
+```
+hello, world
+```
+
+### A CLOSER LOOK AT THE PROGRAM
+
+A C program, regardless of size consists of *functions* and *varibles*. A function contains *statements* that specify the computing operations to be done, and variables store values used during the computation. C functions are like the subroutines and function of 'Fortran' or the procedures and functions of 'Pascal'. Our example is a function named `main`. 
+
+<!-- HERE -- p. 6! -->
