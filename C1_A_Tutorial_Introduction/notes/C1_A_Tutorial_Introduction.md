@@ -39,4 +39,25 @@ A C program, regardless of size consists of *functions* and *varibles*. A functi
 
 One approach to communicating data between functions is for the calling function to provide a list of values, called *arguments*, to the function it calls. The parentheses after the function name surrounds the argument list. In this example, `main` is defined to be a function that expects no arguments, which is indicated by the empty list `()`. 
 
+The statements of a function are enclosed in braces `{}`. The function `main` contains only one statement:
+
+```c
+    printf("hello, world\n");
+```
+
+A function is called by naming it, followed by a parenthesized list of arguments, so this calls the function `printf` with the argument `"hello, world\n"`. `printf` is a library function that prints output, in this case the string of characters between the quotes. 
+
+A sequence of characters in double quots, like `"hello, world"`, is called a *character string* or *string constant*. For the moment our only use of character strings will be as arguments for `printf` and other functions.
+
+The sequence `\n` in the string is 'C' notation for the *newline character*, which when printed advances the output to the left margin on the next line. If one leavs out the `\n` (a worthwhile experiment), one will find that there is noline advance after the output is printed. One must use the `\n` to include a newline character in the `printf` argument; 
+
+If one tries something like this:
+
+```c
+    printf("hello, world
+    ");
+```
+
+the C compiler will produce an error message!
+
 <!-- HERE -- p. 7! -->
