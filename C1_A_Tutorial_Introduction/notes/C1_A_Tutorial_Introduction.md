@@ -60,4 +60,25 @@ If one tries something like this:
 
 the C compiler will produce an error message!
 
-<!-- HERE -- p. 7! -->
+`printf` never supplies a newline automatically, so several calls may be used to build up an output line in stages. Our first program could just as well hve been written:
+
+```c
+#include <stdio.h>
+
+main()
+{
+    printf("hello, ");
+    printf("world");
+    printf("\n");
+}
+```
+
+to produce identical output.
+
+Notice that `\n` represents only a single character. An *escape sequence* like `\n` provides a general and extensible mechanism for representing hard-to-type or invisible characters. Among the others C provides include `\t` for tab, `\b` for backspace, `\"` for the double quote, and `\\` for the backslash itself. There is a complete list in 'Section 2.3'.
+
+**Exercise 1-1**: Run the "hello, world" program on one's system. Experiement with leaving out parts of the program to see which error messages are produced.
+
+**Exercise 1-2**: Experiment to find out what happens when `printf`'s argument string contains `\c`, where *c* is some character not listed above.
+
+<!-- HERE -- p. 8! -->
