@@ -79,6 +79,54 @@ Notice that `\n` represents only a single character. An *escape sequence* like `
 
 **Exercise 1-1**: Run the "hello, world" program on one's system. Experiement with leaving out parts of the program to see which error messages are produced.
 
+The following program:
+
+```c
+#include <stdio.h>
+
+main()
+{
+    printf("hello, world\n")
+}
+```
+
+produced the following error:
+```
+/src/ex1_1.c:7:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+    7 | main()
+      | ^~~~
+/src/ex1_1.c: In function ‘main’:
+/src/ex1_1.c:9:29: error: expected ‘;’ before ‘}’ token
+    9 |     printf("hello, world\n")
+      |                             ^
+      |                             ;
+   10 | }
+      | ~    
+```
+
 **Exercise 1-2**: Experiment to find out what happens when `printf`'s argument string contains `\c`, where *c* is some character not listed above.
+
+The following program:
+```c
+
+```
+
+produced the following warning:
+```
+Starting build...
+/usr/bin/gcc -fdiagnostics-color=always -g src/ex1_2.c -o src/../exec/ex1_2.out
+src/ex1_2.c: In function ‘main’:
+src/ex1_2.c:8:12: warning: unknown escape sequence: '\c'
+    8 |     printf("hello, wor\cld\n");
+      |            ^~~~~~~~~~~~~~~~~~
+
+Build finished with warning(s).
+```
+
+and the following output:
+
+```
+hello, worcld
+```
 
 <!-- HERE -- p. 8! -->
