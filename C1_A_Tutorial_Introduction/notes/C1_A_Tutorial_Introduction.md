@@ -152,7 +152,7 @@ The next program uses the formula $\degree C = (5/9)(\degree F - 32)$ to pring t
 300  148 
 ```
 
-<!-- HERE -- p. 8! -->
+The program itself still consists of the definition of a single function named `main`. It is longer than the one that printed `"hello, world"`, but not complicated. It introduces several new ideas, including comments, declarations, variables, arithmetic expressions, loops, and formatted output.
 
 
 ```c
@@ -179,5 +179,24 @@ int main()
 }
 ```
 
+The two lines 
 
-<!-- HERE -- p. 8! -->
+```cpp
+/* print Fahrenheit-Celsius table
+     for fahr = 0, 20, ..., 300 */
+```
+
+are a *comment*, which in this case briefly explins what the program does. Any characters between `/* */` are ignored by the compiler; they may be used freely to make a program easier to read. Comments may appear anywhere a blank or tab or newline can.
+
+In C, all variables must be declared before they are used, usually at the beginning of the function before any executable statements. A *declaration* announces the properties of variables; it consists of a type name and a list of variables, such as:
+
+```cpp
+    int fahr, celsius;
+    int lower, upper, step;
+```
+
+The type `int` means that the variables listed are integers, by contrast with `float`, which means floating point, i.e., numbers that may have a fractional part. The range of both `int` and `float` depends on the machine one is using; 16-bit `int`s, which lie between -32768 and +32767, are common, as are 32-bit `int`s. A `float` number is typically a 32-bit quantity, with at lest six significant digits and magnitude generally between about $10^{-38}$ and $10^{+38}$.
+
+C provides several other basic data types besides `int` and `float`, including:
+
+<!-- HERE -- p. 9! -->
