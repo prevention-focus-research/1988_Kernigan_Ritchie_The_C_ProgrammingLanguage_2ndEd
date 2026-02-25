@@ -199,4 +199,36 @@ The type `int` means that the variables listed are integers, by contrast with `f
 
 C provides several other basic data types besides `int` and `float`, including:
 
-<!-- HERE -- p. 9! -->
+|type|description|
+|:---|:---|
+|`char`|character--a single byte|
+|`short`|short integer|
+|`long`|long integer|
+|`double`|double-precision floating point|
+
+The sizes of these objects are also machine-dependent. There are lso *arrays*, *structures*, and *unions* of these basic types, *pointers* to them, and *functions* that return them, all of which will be reviewed in due course!
+
+Computation in the temperature conversion program begins with the *assignment statements*
+
+```c
+    lower = 0;
+    upper = 300;
+    step = 20;
+    fahr = lower;
+```
+
+which set the variables to their initial values. Individual statements are terminated by semicolons.
+
+Each lines of the table is computed the same way, so we use a loop that repeats once per output line; this is the purpose of the `while` loop:
+
+```c
+    while (fahr <= upper) {
+        celsius = 5 * (fahr-32) / 9;
+        printf("%d\t%d\n", fahr, celsius);
+        fahr = fahr + step;
+    }
+```
+
+The `while` loop operates as follows: ...
+
+<!-- HERE -- p. 10! -->
