@@ -229,6 +229,17 @@ Each lines of the table is computed the same way, so we use a loop that repeats 
     }
 ```
 
-The `while` loop operates as follows: ...
+The `while` loop operates as follows: The condition in parentheses is tested. If it is true (`fahr` is less than or equal to `upper`), the body of the loop (the three statements enclsoed in braces) is executed. Then the condition is re-tested, and if true, the body is executed again. When the test becomes false (`fahr` exceeds `upper`), the loop ends, and execution continues at the statement that follows the loop. There are no further statements in this program, so it terminates. 
+
+The body of a `while` can be one or more statements enclosed in braces, as in the temperature converter, or a single statement without braces, as in
+
+```c
+while (i < j)
+    i = 2 * i;
+```
+
+In either case, indentation by one tab stop (4 spaces) makes it quickly see which statements are inside the loop. The indentation emphasizes the logical structure of the program. Although C compilers do not care about how a program looks, proper indentation and spacing are critical in making programs esy for people to read. Teach (BKDR) recommends writing only one statement per line, and using blanks around operators to clarify grouping. The position of braces is less important, although people hold passionate beliefs. BKDR have chosen one of several popular styles. The key is to pick one style, and then use it consistently!
+
+Most of the work gets done in the loop's body. ...
 
 <!-- HERE -- p. 10! -->
