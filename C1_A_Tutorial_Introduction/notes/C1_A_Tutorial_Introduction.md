@@ -240,6 +240,24 @@ while (i < j)
 
 In either case, indentation by one tab stop (4 spaces) makes it quickly see which statements are inside the loop. The indentation emphasizes the logical structure of the program. Although C compilers do not care about how a program looks, proper indentation and spacing are critical in making programs esy for people to read. Teach (BKDR) recommends writing only one statement per line, and using blanks around operators to clarify grouping. The position of braces is less important, although people hold passionate beliefs. BKDR have chosen one of several popular styles. The key is to pick one style, and then use it consistently!
 
-Most of the work gets done in the loop's body. ...
+Most of the work gets done in the loop's body. The Celsius temperature is computed and assigned to the varible `celcius` by the statement
 
-<!-- HERE -- p. 10! -->
+```cpp
+        celsius = 5 * (fahr-32) / 9;
+```
+
+The reason for multiplying by `5` and then dividing by `9` instead of just multipying by `5/9` is that in C, as in many other languages, integer division *trunctes*: any fractional part is discarded. Since `5` and `9` are integers, `5/9` would be truncated to zero and so all the 'Celsius' temperatures would be reported as zero. 
+
+This example also shows a bit more of how `printf` works. `printf` is  general-purpose output formatting function, which BKDR will describe in detail in *C7*. It's first argument is  string of characters to be printed, with each `%` indicating where one of the other (second, third, ...) arguments is to be substituted, and in what ofrm it is to be printed. For instance, `%d` specifies an integer argument, so the statement:
+
+```cpp
+        printf("%d\t%d\n", fahr, celsius);
+```
+
+cuses the values of the two integers `fahr` and `celsius` to be printed, with a tab (`\t`) between them. 
+
+Each `%` construction in the first argument of `printf` is paired with the corresponding second argument, third argument, etc.; they must match up properly by number and type, or one'll get incorrect output. 
+
+`printf` is not part of the C language; there is not input or output defined in C itself. `printf` is just a useful function form the standard library of functions that are normally accessible to C programs. The behavior ...
+
+<!-- HERE -- p. 11! -->
