@@ -260,6 +260,25 @@ Each `%` construction in the first argument of `printf` is paired with the corre
 
 `printf` is not part of the C language; there is not input or output defined in C itself. `printf` is just a useful function form the standard library of functions that are normally accessible to C programs. The behavior of `printf` is defined in the ANSI standard, however, so its properties should be the same with any compiler and library that conforms to the standard.
 
-In order to concentrate on C itslef, BKDR will not discuss  much about input and output until *C7*. In particular, BKDR will defer formatted input until then. 
+In order to concentrate on C itslef, BKDR will not discuss much about input and output until *C7*. In particular, BKDR will defer formatted input until then. If one has to input numbers, one should read the discussion of the function `scanf` in 'Section 7.4'. `scanf` is like `printf`, except that it reads input instead of writing output.
+
+There are a couple of problems with the temperature conversion program. The simpler one is that the output isn't very pretty because the numbers are right-justified. That's easy to fix; if we ugment each `%d` in the `printf` statement with a width, the numbers printed will be right-justified in their fields. For instance, we might say:
+
+```cpp
+    printf("%3d %6d\n", fahr, celsius);
+```
+
+to print the first number of ech line in a field three digits wide, and the second in a field six digits wide, like this:
+
+```
+   0   -17
+  20    -6
+  40     4
+  60    15
+  80    26
+ 100    37
+```
+
+The more serious problem is that because we have used integer arithmetic, the 'Celsius' temperatures are not very accurate; for instance, $0 \degree F$ is actually about...
 
 <!-- HERE -- p. 11! -->
