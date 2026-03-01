@@ -258,6 +258,8 @@ cuses the values of the two integers `fahr` and `celsius` to be printed, with a 
 
 Each `%` construction in the first argument of `printf` is paired with the corresponding second argument, third argument, etc.; they must match up properly by number and type, or one'll get incorrect output. 
 
-`printf` is not part of the C language; there is not input or output defined in C itself. `printf` is just a useful function form the standard library of functions that are normally accessible to C programs. The behavior ...
+`printf` is not part of the C language; there is not input or output defined in C itself. `printf` is just a useful function form the standard library of functions that are normally accessible to C programs. The behavior of `printf` is defined in the ANSI standard, however, so its properties should be the same with any compiler and library that conforms to the standard.
+
+In order to concentrate on C itslef, BKDR will not discuss  much about input and output until *C7*. In particular, BKDR will defer formatted input until then. 
 
 <!-- HERE -- p. 11! -->
