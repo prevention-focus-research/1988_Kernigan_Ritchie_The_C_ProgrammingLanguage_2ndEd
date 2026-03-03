@@ -154,7 +154,7 @@ The next program uses the formula $\degree C = (5/9)(\degree F - 32)$ to pring t
 
 The program itself still consists of the definition of a single function named `main`. It is longer than the one that printed `"hello, world"`, but not complicated. It introduces several new ideas, including comments, declarations, variables, arithmetic expressions, loops, and formatted output.
 
-
+**EXAMPLE PROGRAM**: *fahrenheit_celsius_table.c*
 ```c
 #include <stdio.h>
 
@@ -279,6 +279,52 @@ to print the first number of ech line in a field three digits wide, and the seco
  100    37
 ```
 
-The more serious problem is that because we have used integer arithmetic, the 'Celsius' temperatures are not very accurate; for instance, $0 \degree F$ is actually about...
+The more serious problem is that because we have used integer arithmetic, the 'Celsius' temperatures are not very accurate; for instance, $0 \degree F$ is actually about $-17.8 \degree C$, not $-17$. To get more accurate answers, we should use floating-point arithmetic instead of integer. This requires some changes in the program. Here is a second version:
+
+**EXAMPLE PROGRAM**: *fahrenheit_celsius_table2.c*
+```c
+#include <stdio.h>
+
+/* print Fahrenheit-Celsius table
+     for fahr = 0, 20, ..., 300; floating-point version */
+
+int main()
+{
+    float fahr, celsius;
+    int lower, upper, step;
+
+    lower = 0;      /* lower limit of temperature table */ 
+    upper = 300;    /* upper limit of temperature table */ 
+    step = 20;      /* step size */ 
+
+    fahr = lower;
+    while (fahr <= upper) {
+        celsius = (5.0/9.0) * (fahr-32.0);
+        printf("%3.0f %6.1f\n", fahr, celsius);
+        fahr = fahr + step;
+    }
+}
+```
+
+<!-- HERE -- p. 12! -->
+
+```
+  0  -17.8
+ 20   -6.7
+ 40    4.4
+ 60   15.6
+ 80   26.7
+100   37.8
+120   48.9
+140   60.0
+160   71.1
+180   82.2
+200   93.3
+220  104.4
+240  115.6
+260  126.7
+280  137.8
+300  148.9
+```
 
 <!-- HERE -- p. 11! -->
