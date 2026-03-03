@@ -306,6 +306,12 @@ int main()
 }
 ```
 
+This is much the same as before, except that `fahr` and `celsius` are declared to be `float`, and the formul for conversion is written in a more natural way. We were unable to use `5/9` in the previous version because integer division would truncate it to zero. A decimal point in a constant indicates that it is floating point, however, so `5.0/9.0` is not truncated because it is the ratio of two floating-point values. 
+
+If an arithmetic operater has integer operands, an integer operation is performed. If an arithmetic operator has one floating-point operand and one integer operand, however, the integer will be converted to floating point before the operation is done. If we had written `fahr-32`, the `32` would be automatically converted to floating point. Nevertheless, writing floating-point constants with explicit decimal points evne when they have integral values emphasizes their floating-point nature for human readers.
+
+The detiled rules for when integers are converted to floating point are in *C2*. For now, notice that the assignment `fahr = lower;` and the test `while (fahr <= upper)` also work in the natural way -- the `int` is converted to `float` before the operation is done.
+
 <!-- HERE -- p. 12! -->
 
 ```
