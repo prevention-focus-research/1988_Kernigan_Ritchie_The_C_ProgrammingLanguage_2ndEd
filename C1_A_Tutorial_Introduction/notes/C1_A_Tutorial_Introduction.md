@@ -312,7 +312,7 @@ If an arithmetic operater has integer operands, an integer operation is performe
 
 The detiled rules for when integers are converted to floating point are in *C2*. For now, notice that the assignment `fahr = lower;` and the test `while (fahr <= upper)` also work in the natural way -- the `int` is converted to `float` before the operation is done.
 
-<!-- HERE -- p. 12! -->
+The `printf` conversion specification `%3.0f` says that a floating-point number (here `fahr`) is to be printed at least three characters wide, with no deciml point an dno fraction digits. `%6.1f` describes another number (`celsius`) that is to be printed at least six characters wide, with `1` digit fter the decimal point. The output looks like this:
 
 ```
   0  -17.8
@@ -333,4 +333,15 @@ The detiled rules for when integers are converted to floating point are in *C2*.
 300  148.9
 ```
 
-<!-- HERE -- p. 11! -->
+Width and precision my be omitted from a specification: `%6f` sys that the number is to be at least six characters wide; `%.2f` specifies two characters after the decimal point, but the width is not constrained; and `%f` merely says to porint the number as floating point.
+
+|`printf` expression|description|
+|:---|:---|
+|`%d`|print as decimal integer|
+|`%6d`|print as decimal integer, at least 6 characters wide|
+|`%f`|print as floating point|
+|`%6f`|ptins as floating point, at least 6 characters wide|
+|`%.2f`|print as floating point, 2 characters after decimal point|
+|`%6.2f`|print as floating point, at least 6 characters wide and 2 after decimal point|
+
+<!-- HERE -- p. 13! -->
