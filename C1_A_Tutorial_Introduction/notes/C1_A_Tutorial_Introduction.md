@@ -344,4 +344,35 @@ Width and precision my be omitted from a specification: `%6f` sys that the numbe
 |`%.2f`|print as floating point, 2 characters after decimal point|
 |`%6.2f`|print as floating point, at least 6 characters wide and 2 after decimal point|
 
+Among others, `printf` also recognizes `%o` for octal, `%x` for hexadeciml, `%c` for character, `%s` for string, and `%%` for `%` itself.
+
+**EXCERCISE 1-3**: Modify the temperature conversion program to print a heding above the table.
+
+```c
+#include <stdio.h>
+
+/* print Fahrenheit-Celsius table
+     for fahr = 0, 20, ..., 300; floating-point version */
+
+int main()
+{
+    float fahr, celsius;
+    int lower, upper, step;
+
+    lower = 0;      /* lower limit of temperature table */ 
+    upper = 300;    /* upper limit of temperature table */ 
+    step = 20;      /* step size */ 
+
+    fahr = lower;
+    printf("Fahrenheit to Celsius Conversion Table\n\n");
+    while (fahr <= upper) {
+        celsius = (5.0/9.0) * (fahr-32.0);
+        printf("%3.0f %6.1f\n", fahr, celsius);
+        fahr = fahr + step;
+    }
+}
+```
+
+**EXCERCISE 1-4**: Write a program to print the corresponding Celsius to Fahrenheit table.
+
 <!-- HERE -- p. 13! -->
