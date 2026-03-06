@@ -373,6 +373,87 @@ int main()
 }
 ```
 
+```
+Fahrenheit to Celsius Conversion Table
+
+  0  -17.8
+ 20   -6.7
+ 40    4.4
+ 60   15.6
+ 80   26.7
+100   37.8
+120   48.9
+140   60.0
+160   71.1
+180   82.2
+200   93.3
+220  104.4
+240  115.6
+260  126.7
+280  137.8
+300  148.9
+```
+
 **EXCERCISE 1-4**: Write a program to print the corresponding Celsius to Fahrenheit table.
 
+```c
+#include <stdio.h>
+
+/* print Fahrenheit-Celsius table
+     for fahr = 0, 20, ..., 300; floating-point version */
+
+int main()
+{
+    float fahr, celsius;
+    int lower, upper, step;
+
+    lower = -20;      /* lower limit of temperature table */ 
+    upper = 150;    /* upper limit of temperature table */ 
+    step = 5;      /* step size */ 
+
+    fahr = lower;
+    printf("Celsius to Fahrenheit Conversion Table\n\n");
+    while (celsius <= upper) {
+        fahr = ((9.0/5.0) * celsius) + 32.0;
+        printf("%3.0f %6.1f\n", celsius, fahr);
+        celsius = celsius + step;
+    }
+}
+```
+
+```
+Celsius to Fahrenheit Conversion Table
+
+  0   32.0
+  5   41.0
+ 10   50.0
+ 15   59.0
+ 20   68.0
+ 25   77.0
+ 30   86.0
+ 35   95.0
+ 40  104.0
+ 45  113.0
+ 50  122.0
+ 55  131.0
+ 60  140.0
+ 65  149.0
+ 70  158.0
+ 75  167.0
+ 80  176.0
+ 85  185.0
+ 90  194.0
+ 95  203.0
+100  212.0
+105  221.0
+110  230.0
+115  239.0
+120  248.0
+125  257.0
+130  266.0
+135  275.0
+140  284.0
+145  293.0
+150  302.0
+```
 <!-- HERE -- p. 13! -->
