@@ -421,6 +421,8 @@ int main()
 }
 ```
 
+the program above produces the following output:
+
 ```
 Celsius to Fahrenheit Conversion Table
 
@@ -456,4 +458,10 @@ Celsius to Fahrenheit Conversion Table
 145  293.0
 150  302.0
 ```
+
+## 1.3: THE `for` STATEMENT
+
+There are plenty of different ways to write a program for a particular task. Let's try a variation on the temperature converter:
+
+**EXAMPLE PROGRAM** : 
 <!-- HERE -- p. 13! -->
