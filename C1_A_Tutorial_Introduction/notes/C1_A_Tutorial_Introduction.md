@@ -463,5 +463,43 @@ Celsius to Fahrenheit Conversion Table
 
 There are plenty of different ways to write a program for a particular task. Let's try a variation on the temperature converter:
 
-**EXAMPLE PROGRAM** : 
+**EXAMPLE PROGRAM**: *fahrenheit_celsius3.c*
+```c
+#include <stdio.h>
+
+/* print Fahrenheit-Celsius table */
+int main()
+{
+    int fahr;
+
+    for (fahr = 0; fahr <= 300; fahr = fahr + 20)
+        printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
+}
+```
+
+output from the program above:
+
+```
+  0  -17.8
+ 20   -6.7
+ 40    4.4
+ 60   15.6
+ 80   26.7
+100   37.8
+120   48.9
+140   60.0
+160   71.1
+180   82.2
+200   93.3
+220  104.4
+240  115.6
+260  126.7
+280  137.8
+300  148.9
+```
+
+This program produces the same result, but it looks much different. One major change is the elimination of most of the variables; only `fahr` remains, and we have made it an `int`. The lower and upper limits and the step size appear only as constants in the `for` statement, itself a new construction, and the expression that computes the 'Celsius' temperature now appears as the third argument of `printf` instead of as a separate assignment statement.
+
+This last change ...
+
 <!-- HERE -- p. 13! -->
