@@ -502,6 +502,46 @@ This program produces the same result, but it looks much different. One major ch
 
 This last change is an instance of a general rule -- in any context where it is permissible to use the value of a variable of some type, one can use a more compalicated expression of that type. Since the third argument of `printf` must be a floating-point value to match the `%6.1f`, any floating-point expression can occur there.
 
-The `for` statement is a loop, a generaliztion of the `while`. If one compares it to the `while` loop introduced earlier, its operation should be clear. Within the parentheses, there are three parts, separated by semicolons (`;`). The first part, the initialization: `fahr = 0` is done once, before the loop is entered. The second part is the test or condition that controls the loop: `fahr <= 300`. This condition is evaluated; if it is true, the body of the loop (here a single `printf`) is executed. Then the increment step: `fahr = fahr + 20` is executed, and the condition re-evaluated. 
+The `for` statement is a loop, a generaliztion of the `while`. If one compares it to the `while` loop introduced earlier, its operation should be clear. Within the parentheses, there are three parts, separated by semicolons (`;`). The first part, the initialization: `fahr = 0` is done once, before the loop is entered. The second part is the test or condition that controls the loop: `fahr <= 300`. This condition is evaluated; if it is true, the body of the loop (here a single `printf`) is executed. Then the increment step: `fahr = fahr + 20` is executed, and the condition re-evaluated. The loop terminates if the condition has become false. As with the `while` loop, the body of the loop can be a single statement, or a group of statements enclosed in braces. The initialization, condition, and increment can be any expression.
+
+The coice between `while` and `for` is arbtrary, based on which seems clearer. The `for` is usually appropriate for loops in which the initialization and increment are single statements and logically related, since it is more compact than `while` and it keeps the loop control statements together in one place.
+
+**EXCERCISE 1-5**: Modify the temperature conversion program to print the table in reverse order, that is, from 300 degrees to 0.
+
+```c
+#include <stdio.h>
+
+/* print Fahrenheit-Celsius table */
+int main()
+{
+    int fahr;
+
+    for (fahr = 300; fahr >= 0; fahr = fahr - 20)
+        printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
+}```
+
+output from the program above:
+
+```
+300  148.9
+280  137.8
+260  126.7
+240  115.6
+220  104.4
+200   93.3
+180   82.2
+160   71.1
+140   60.0
+120   48.9
+100   37.8
+ 80   26.7
+ 60   15.6
+ 40    4.4
+ 20   -6.7
+  0  -17.8
+```
+```
+
+## 1.4: SYMBOLIC CONSTANTS
 
 <!-- HERE -- p. 14! -->
