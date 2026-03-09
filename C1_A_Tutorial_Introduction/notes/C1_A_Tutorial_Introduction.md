@@ -500,6 +500,8 @@ output from the program above:
 
 This program produces the same result, but it looks much different. One major change is the elimination of most of the variables; only `fahr` remains, and we have made it an `int`. The lower and upper limits and the step size appear only as constants in the `for` statement, itself a new construction, and the expression that computes the 'Celsius' temperature now appears as the third argument of `printf` instead of as a separate assignment statement.
 
-This last change ...
+This last change is an instance of a general rule -- in any context where it is permissible to use the value of a variable of some type, one can use a more compalicated expression of that type. Since the third argument of `printf` must be a floating-point value to match the `%6.1f`, any floating-point expression can occur there.
 
-<!-- HERE -- p. 13! -->
+The `for` statement is a loop, a generaliztion of the `while`. If one compares it to the `while` loop introduced earlier, its operation should be clear. Within the parentheses, there are three parts, separated by semicolons (`;`). The first part, the initialization: `fahr = 0` is done once, before the loop is entered. The second part is the test or condition that controls the loop: `fahr <= 300`. This condition is evaluated; if it is true, the body of the loop (here a single `printf`) is executed. Then the increment step: `fahr = fahr + 20` is executed, and the condition re-evaluated. 
+
+<!-- HERE -- p. 14! -->
