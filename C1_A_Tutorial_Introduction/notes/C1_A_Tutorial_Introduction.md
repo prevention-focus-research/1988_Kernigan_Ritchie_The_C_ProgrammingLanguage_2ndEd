@@ -544,4 +544,8 @@ output from the program above:
 
 ## 1.4: SYMBOLIC CONSTANTS
 
-<!-- HERE -- p. 14! -->
+A final observation before we leave temperature conversion forever. It's a bad practice to bury "magic numbers" like 300 and 20 in a program; they convey little information to someone who might have to read the program later, and they are hard to change in a systematic way. One way to deal with magic numbers is to give them meaningful names. A `#define` line define a *symbolic name* or *symbolic constant* to be a particular string of characters: `#define {name} {replacement text}`. Thereafter, any occurrence of name (not in quotes and not part of another name) will be replaced by the corresponding *replacement text*. The *name* has the same form as a variable name: a sequence of letters and digits that begins with a letter. The *replcement text* can be any sequence of characters; it is not limited ot numbers. 
+
+**EXAMAPLE PROGRAM**: 
+
+<!-- HERE -- p. 15! -->
