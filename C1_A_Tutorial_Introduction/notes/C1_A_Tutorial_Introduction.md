@@ -584,4 +584,12 @@ The program above produced the following output:
 300  148.9
 ```
 
+The quantities `LOWER`, `UPPER`, and `STEP` are symbolic constants, not variables, so they do not appear in declarations. Symbolic constant names are conventionally written in upper case so they can be readily distinguished form lower case variable names. Notice that there is no semicolon at the end of a `#define` line.
+
+## 1.5: CHARACTER INPUT AND OUTPUT
+
+We are not going to consider a family of related programs for processing character data. One will find that many programs are just expanded versions of the prototypes that we discuss here.
+
+The model of input and output supported by the standard library is very simple. Text input or output, regardless of where it originates or where it gotes to, is dealth with as streams of characters. A *text stream* is a sequence of characters divided into lines; each line consists of zero or more characters follwoed by a newline character. It is the responsibility of the library to make input or output stream conform to this model; the C programmer using the library need not worry about how lines are represented outside the program. 
+
 <!-- HERE -- p. 15! -->
