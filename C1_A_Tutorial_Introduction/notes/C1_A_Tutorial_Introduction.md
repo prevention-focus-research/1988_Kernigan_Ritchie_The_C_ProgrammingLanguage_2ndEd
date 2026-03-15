@@ -626,4 +626,14 @@ int main()
 }
 ```
 
-<!-- HERE -- p. 16! -->
+The relational operator `!=` means "not equal to."
+
+What appears to be a character on the keyboard or screen is of course, like everything else, stored internally juts as a bit pattern. The type `char` is specifically meant for string such character data, but any integer type can be used. We used `int` for a sublte but important reason. 
+
+The problem is distinguishing the end of the input from valid data. The solution is that `getchar` retusn a distinctive value when there is no more input, a vlaue that cannot be confused with any real character. This value is called `EOF`, for "end of file." We must declare `c` to be a type big enough to hold any value that `getchar` returns. We can't use `char` since `c` must be big enough to hold `EOF` in addition to any possible `char`. Therefore we use `int`. 
+
+`EOF` is an integer defined in `<stdio.h>`, but the specific numberic value doesn't matter as along as it is not the same as any `char` value. By using the symbolic constant, we are assured that nothing in the program depends on the specific numeric value.
+
+The program for copying would be written more concisely by experienced C programmers. In C, any assignment, such s `c = getchar()` is an expression and has a value, which is the value of the left hand side after the assignment. ...
+
+<!-- HERE -- p. 17! -->
