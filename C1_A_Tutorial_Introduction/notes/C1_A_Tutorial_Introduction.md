@@ -607,4 +607,23 @@ while (character is not end-of-file indicator)
 
 Converting into c gives: 
 
+**EXAMPLE PROGRAM**: *file_copying1.c*
+
+```c
+#include <stdio.h>
+
+/* copy input to output; 1st version */
+
+int main()
+{
+    int c;
+
+    c = getchar();
+    while (c != EOF) {
+        putchar(c);
+        c = getchar();
+    }
+}
+```
+
 <!-- HERE -- p. 16! -->
