@@ -634,6 +634,22 @@ The problem is distinguishing the end of the input from valid data. The solution
 
 `EOF` is an integer defined in `<stdio.h>`, but the specific numberic value doesn't matter as along as it is not the same as any `char` value. By using the symbolic constant, we are assured that nothing in the program depends on the specific numeric value.
 
-The program for copying would be written more concisely by experienced C programmers. In C, any assignment, such s `c = getchar()` is an expression and has a value, which is the value of the left hand side after the assignment. ...
+The program for copying would be written more concisely by experienced C programmers. In C, any assignment, such s `c = getchar()` is an expression and has a value, which is the value of the left hand side after the assignment. This means that an assignment can appear s part of a larger exprssion. If the assignment of a character to `c` is put inside the test part of a `while` loop, the copy program can be written this way:
+
+**EXAMPLE PROGRAM**: *file_copying2.c*
+
+```c
+#include <stdio.h>
+
+/* copy input to output; 2nd version */
+
+int main()
+{
+    int c;
+    
+    while ((c = getchar()) != EOF) 
+        putchar(c);
+}
+```
 
 <!-- HERE -- p. 17! -->
