@@ -652,4 +652,14 @@ int main()
 }
 ```
 
+The `while` gets a character, assigns it to `c`, and then tests whether the characr was the end-of-life signal. If it was not, the boyd of the `while` is executed, printing the character. The `while` then repeats. When the end of the input is finally reached, the `while` terminates nd so does `main`. 
+
+This version centralizes the input -- there is now only one reference to `getchar` -- and shrinks the program. The resulting program is more compact, and, once the idiom is mastered, easier to read. One'll see this style often. (It's possible ot get carried way and create impenetrable code, however,a tendency hat we will try to curb.)
+
+The parentheses around the assignment within the condition are necessary. The *precedence* of `!=` is higher than that of `=`, which means that in the absence of the relational test `!=` woudl be done before the assignment `=`. So the statement `c = getchar() != EOF` is equivalent to `c = (getchar() != EOF)`. This hs the undesired effect of setting `c` to `0` or `1`, dependeing on whether or not the call of `getchar` encountered end of file. (More on this in *C2*). 
+
+**Exercise 1-6**: Verify that the expression `getchar() != EOF` is 0 or 1.
+
+**Exercise 1-7**: Write a program to print the value of `EOF`. 
+
 <!-- HERE -- p. 17! -->
