@@ -660,6 +660,52 @@ The parentheses around the assignment within the condition are necessary. The *p
 
 **Exercise 1-6**: Verify that the expression `getchar() != EOF` is 0 or 1.
 
+```c
+#include <stdio.h>
+
+/* Verify that the expression `getchar() != EOF` is 0 or 1*/
+
+int main(void) {
+    int expression_value;
+
+    printf("Enter a character (or signal EOF): ");
+    
+    // The expression 'getchar() != EOF' is evaluated, and its result (0 or 1) 
+    // is assigned to 'expression_value'. The parentheses around 'getchar() != EOF'
+    // explicitly show the order of operations, though due to precedence it's 
+    // evaluated as is.
+    expression_value = (getchar() != EOF);
+
+    // Print the integer value of the expression.
+    printf("The expression getchar() != EOF evaluated to: %d\n", expression_value);
+
+    return 0;
+}
+```
+
 **Exercise 1-7**: Write a program to print the value of `EOF`. 
 
-<!-- HERE -- p. 17! -->
+```c
+/* Write a program to print the value of EOF*/
+
+#include <stdio.h>
+
+int main() {
+    printf("The value of EOF is: %d\n", EOF);
+    return 0;
+}
+```
+
+program output:
+
+```
+The value of EOF is: -1
+```
+
+### 1.5.2: CHARACTER COUTNING
+
+The next program counts characters; it is similar to the copy program.
+
+**EXAMPLE PROGRAM**: *character_counting.c*
+
+<!-- HERE -- p. 18! -->
