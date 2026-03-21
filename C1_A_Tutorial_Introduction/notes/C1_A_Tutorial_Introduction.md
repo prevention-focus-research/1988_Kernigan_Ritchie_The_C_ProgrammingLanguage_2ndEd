@@ -707,5 +707,28 @@ The value of EOF is: -1
 The next program counts characters; it is similar to the copy program.
 
 **EXAMPLE PROGRAM**: *character_counting.c*
+```c
+#include <stdio.h>
 
+/* count characters in input: 1st version */
+
+int main()
+{
+    long nc;
+
+    nc = 0;
+    while (getchar() != EOF)
+        ++nc;
+    printf("%ld\n", nc);
+}
+```
+
+program output:
+```
+c
+hello
+8
+```
+
+The statement `++nc;` presents a new operator, `++`, which means *increment by one*. ...
 <!-- HERE -- p. 18! -->

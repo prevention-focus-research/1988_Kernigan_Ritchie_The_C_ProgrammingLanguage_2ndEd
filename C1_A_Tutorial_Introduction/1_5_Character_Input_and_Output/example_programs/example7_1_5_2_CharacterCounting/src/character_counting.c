@@ -9,5 +9,5 @@ int main()
     nc = 0;
     while (getchar() != EOF)
         ++nc;
-    printf("%lld\n", nc);
+    printf("%ld\n", nc);
 }
