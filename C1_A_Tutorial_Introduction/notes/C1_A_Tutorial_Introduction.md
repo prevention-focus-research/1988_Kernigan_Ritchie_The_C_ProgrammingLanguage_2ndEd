@@ -759,4 +759,12 @@ hello
 8
 ```
 
-<!-- HERE -- p. 18! -->
+`printf` uses `%f` for both `float` and `double`; `%0.f` suppresses printing of the decimal point and the fraction part, which is zero. 
+
+The body of this `for` loop is empty because all of the work is done in the test and increment parts. But the grammatical rules of C require that a `for` statement have a body. The isolated semicolon, called a *null statement*, is there to satisfy that requirement. BTDR put it in a separate line ot make it visible.
+
+Before moving on from the character counting program, observe that if the input contains no characters, the `while` or `for` test fails on the very first call to `getchar`, and the program produces zero, the right answer. This is important. One of te nice things about `while` and `for` is that they test at the top of the loop, before proceeding with the body. If there is nothing to do, nothing is done, even if that means never going through the loop body. Programs sould act inteligently when given zero-length input. The `while` and `for` statements help ensure that program do reasonable things with boundary conditions.
+
+### 1.5.3: LINE COUNTING
+
+<!-- HERE -- p. 19! -->
