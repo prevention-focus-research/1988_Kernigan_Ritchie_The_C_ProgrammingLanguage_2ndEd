@@ -730,5 +730,33 @@ hello
 8
 ```
 
-The statement `++nc;` presents a new operator, `++`, which means *increment by one*. ...
+The statement `++nc;` presents a new operator, `++`, which means *increment by one*. One coudl instead write `nc = nc + 1` but `++nc` i smore concise and often more efficient. There is a corresponding operator `--` to decrement by `1`. The operators `++` and `--` can be either prefix operators (`++nc`) or postfix (`nc++`); these two forms have different values in expressions, as will be shown in *C2*, but `++nc` and `nc++` both increment `nc`. For the moment we will stick to the prefix form. 
+
+The character counting program accumulates its count in a `long` variable instead of an int. `long` integers are at least 32 bitsw. Although on some machines, `int` and `long` are the same size, on others an `int` is 16 bits, with a maximum value of 32767, and it would take relatively little input to overflow an `int` counter. The conversion specification `%ld` tells `printf` that the corresponding argument is a `long integer`. 
+
+It may be possible to cope with even bigger numbers by using a `double` (double precision `float`). We will also use a `for` statement instead of a `while`, to illustrate way to write the loop:
+
+**EXAMPLE PROGRAM**: *character_counting2.c*
+```c
+#include <stdio.h>
+
+/* count characters in input: 2nd version */
+
+int main()
+{
+    double nc;
+
+    for (nc = 0; getchar() != EOF; ++nc)
+        ;
+    printf("%.0f\n", nc);
+}
+```
+
+program output:
+```
+c
+hello
+8
+```
+
 <!-- HERE -- p. 18! -->
