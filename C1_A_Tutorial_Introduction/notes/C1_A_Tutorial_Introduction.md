@@ -767,4 +767,34 @@ Before moving on from the character counting program, observe that if the input 
 
 ### 1.5.3: LINE COUNTING
 
+The next program counts input lines. As BKDR mentioned above, the standard library ensures that an input text stream appears as a sequence of lines, each terminated by a newline. Hence, counting lines is just counting newlines:
+
+**example program**: *line_counting.c*
+```c
+#include <stdio.h>
+
+/* count lines in input */
+
+int main()
+{
+    int c, nl;
+
+    nl = 0;
+    while((c = getchar()) != EOF)
+        if (c == '\n')
+            ++nl;
+    printf("%d\n", nl);
+}
+```
+
+program output:
+
+```
+c
+d
+e
+hello
+```
+
+The body of the `while` now consists of an `if`, which in turn controls the increment `++nl`. ...
 <!-- HERE -- p. 19! -->
