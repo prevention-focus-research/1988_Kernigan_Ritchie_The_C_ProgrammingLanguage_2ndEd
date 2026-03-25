@@ -796,5 +796,9 @@ e
 hello
 ```
 
-The body of the `while` now consists of an `if`, which in turn controls the increment `++nl`. ...
+The body of the `while` now consists of an `if`, which in turn controls the increment `++nl`. The `if` statement tests the parenthesized condition, and if the condition true, executes the statement (or group of statements in braces) that follows. We have again intended to show what is controlled by what. 
+
+The double equals sign `==` is the C notation for "is equal to" (like Pscl's single `=` or Fortran's `.EQ.`). This symbol is used to distinguish the equality test from the single `=` that C uses for assignment. A word of caution: newcomers to C occasionally write `=` when they mean `==`. As will be seen in *C2*, the result is usually a legal expression, so one will ge no warning. 
+
+A character written between single quotes represents an integer value equal to the numerical value of the character in the machine's character set. This is called a *charactr constant*, although it is just another way to write  small integer. So, for example, `'A'` is a character constant; in the ASCII chracter set its' value is 65, the internal representiaotn of the character `**A**`. Of course, ...
 <!-- HERE -- p. 19! -->
