@@ -800,5 +800,13 @@ The body of the `while` now consists of an `if`, which in turn controls the incr
 
 The double equals sign `==` is the C notation for "is equal to" (like Pscl's single `=` or Fortran's `.EQ.`). This symbol is used to distinguish the equality test from the single `=` that C uses for assignment. A word of caution: newcomers to C occasionally write `=` when they mean `==`. As will be seen in *C2*, the result is usually a legal expression, so one will ge no warning. 
 
-A character written between single quotes represents an integer value equal to the numerical value of the character in the machine's character set. This is called a *charactr constant*, although it is just another way to write  small integer. So, for example, `'A'` is a character constant; in the ASCII chracter set its' value is 65, the internal representiaotn of the character `**A**`. Of course, ...
-<!-- HERE -- p. 19! -->
+A character written between single quotes represents an integer value equal to the numerical value of the character in the machine's character set. This is called a *charactr constant*, although it is just another way to write  small integer. So, for example, `'A'` is a character constant; in the ASCII chracter set its' value is 65, the internal representiaotn of the character `**A**`. Of course, `'A'` sets its value to be preferred over `65`: its meaning is obvious, and it is independent of a particular character set. 
+
+The escape sequence used in string constants are also legal in character constants, so `'\n'` stands for the value of the newline character, which is `10` in ASCII. One should note carefully that `'\n'` is a single character, and in expressions is just an integer; on the other hand, `"\n"` is  string constant that happens ot contain only one character. the topic of strings versus characters is discussed further in *C2*. 
+
+**Exercise 1-8**: Write a program to count blanks, tabs, and newlines.
+
+**Exercise 1-9**: Write a program to copy its input to its output, replacing each string of one or more blanks by a single blank.
+
+**Exercise 1-10**: Write a program to copy its input to its output, replacing each tab by `\t`, each backspace by `\b`, and each backslash by `\\`. This makes tabs and backspaces visible in an unambiguous way. 
+<!-- HERE -- p. 20! -->
