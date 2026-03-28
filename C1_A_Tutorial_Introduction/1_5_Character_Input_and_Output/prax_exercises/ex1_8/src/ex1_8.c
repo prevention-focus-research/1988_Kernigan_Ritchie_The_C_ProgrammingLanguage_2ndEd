@@ -8,9 +8,13 @@ int main()
     number of new lines*/
 
     nb = nt = nl = 0;
-    // HERE -- p. 20!
-    while((c = getchar()) != EOF)
+    while((c = getchar()) != EOF) {
         if (c == '\n')
             ++nl;
-    printf("%d\n", nl);
+        if (c == '\t')
+            ++nt;
+        if (c == '\b')
+            ++nb;
+    }
+    printf("blanks: %d; tabs: %d; newlines: %d\n", nb, nt, nl);
 }

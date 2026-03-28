@@ -806,8 +806,36 @@ The escape sequence used in string constants are also legal in character constan
 
 **Exercise 1-8**: Write a program to count blanks, tabs, and newlines.
 
-<!-- HERE -- p. 20! -->
+```c
+/* Write a program to count blanks, tabs, and newlines*/
+
+#include <stdio.h>
+
+int main()
+{
+    int c, nb, nt, nl;  /* nb = number of blanks, nt = number of tabs, nl = 
+    number of new lines*/
+
+    nb = nt = nl = 0;
+    while((c = getchar()) != EOF) {
+        if (c == '\n')
+            ++nl;
+        if (c == '\t')
+            ++nt;
+        if (c == '\b')
+            ++nb;
+    }
+    printf("blanks: %d; tabs: %d; newlines: %d\n", nb, nt, nl);
+}
+```
+
+program output:
+```
+blanks: 0; tabs: 3; newlines: 3
+```
 
 **Exercise 1-9**: Write a program to copy its input to its output, replacing each string of one or more blanks by a single blank.
+
+<!-- HERE -- p. 20! -->
 
 **Exercise 1-10**: Write a program to copy its input to its output, replacing each tab by `\t`, each backspace by `\b`, and each backslash by `\\`. This makes tabs and backspaces visible in an unambiguous way. 
