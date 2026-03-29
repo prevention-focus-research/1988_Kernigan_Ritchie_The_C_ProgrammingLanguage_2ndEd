@@ -836,6 +836,44 @@ blanks: 0; tabs: 3; newlines: 3
 
 **Exercise 1-9**: Write a program to copy its input to its output, replacing each string of one or more blanks by a single blank.
 
-<!-- HERE -- p. 20! -->
+```c
+/* Write a program to copy its input to its output, replacing each string of 
+or more blanks by a single blank*/
+
+#include <stdio.h>
+
+/* Copy input to output, replacing strings of blanks with a single blank */
+int main() {
+    int c;
+    int last_char_was_blank = 0;
+
+    while ((c = getchar()) != EOF) {
+        if (c == ' ') {
+            if (!last_char_was_blank) {
+                putchar(c);
+                last_char_was_blank = 1;
+            }
+        } else {
+            putchar(c);
+            last_char_was_blank = 0;
+        }
+    }
+
+    return 0;
+}
+```
+
+program output:
+
+```
+hello there!
+hello there!
+hello   there!
+hello there!
+hello!
+hello!
+```
 
 **Exercise 1-10**: Write a program to copy its input to its output, replacing each tab by `\t`, each backspace by `\b`, and each backslash by `\\`. This makes tabs and backspaces visible in an unambiguous way. 
+
+<!-- HERE -- p. 20! update ex 1-8! -->
