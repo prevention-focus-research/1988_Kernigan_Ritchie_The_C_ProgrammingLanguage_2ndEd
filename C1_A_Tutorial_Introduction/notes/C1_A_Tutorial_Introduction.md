@@ -822,16 +822,18 @@ int main()
             ++nl;
         if (c == '\t')
             ++nt;
-        if (c == '\b')
+        if (c == ' ')
             ++nb;
     }
     printf("blanks: %d; tabs: %d; newlines: %d\n", nb, nt, nl);
-}
-```
+}```
 
 program output:
 ```
-blanks: 0; tabs: 3; newlines: 3
+hello   world?
+hello           world?
+yo, what's good with you??
+blanks: 7; tabs: 2; newlines: 3
 ```
 
 **Exercise 1-9**: Write a program to copy its input to its output, replacing each string of one or more blanks by a single blank.

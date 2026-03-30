@@ -13,7 +13,7 @@ int main()
             ++nl;
         if (c == '\t')
             ++nt;
-        if (c == '\b')
+        if (c == ' ')
             ++nb;
     }
     printf("blanks: %d; tabs: %d; newlines: %d\n", nb, nt, nl);
