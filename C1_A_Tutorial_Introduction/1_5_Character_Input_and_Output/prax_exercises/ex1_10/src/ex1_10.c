@@ -6,19 +6,24 @@ This makes tabs and backspaces visible in an unambiguous way.*/
 
 int main() {
     int c;
-    int last_char_was_blank = 0;
 
     while ((c = getchar()) != EOF) {
-        if (c == ' ') {
-            if (!last_char_was_blank) {
-                putchar(c);
-                last_char_was_blank = 1;
-            }
+        if (c == '\t') {
+            /* Replace tab with \t */
+            putchar('\\');
+            putchar('t');
+        } else if (c == '\b') {
+            /* Replace backspace with \b */
+            putchar('\\');
+            putchar('b');
+        } else if (c == '\\') {
+            /* Replace backslash with \\ */
+            putchar('\\');
+            putchar('\\');
         } else {
+            /* Output all other characters as-is */
             putchar(c);
-            last_char_was_blank = 0;
         }
     }
-
     return 0;
 }
