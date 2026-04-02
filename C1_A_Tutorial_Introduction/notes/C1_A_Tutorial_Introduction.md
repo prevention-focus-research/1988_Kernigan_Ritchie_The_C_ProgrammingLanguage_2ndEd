@@ -965,6 +965,10 @@ it's all g!
 2 0 38
 ```
 
+Every time the program encounters the first character of a word, it counts one word. The variable `state` records whether the program is currently in a word or not; initially it is "not in a word," which is assigned the value of `OUT`. We prefer the symbolic constants `IN` and `OUT` to the literal values `1` and `0` because they make the program more readable. In a program as tiny as this, it makes little difference, but in larger programs, the increase in clarity is well worth the modest extra effort to write it this way from the beginning. One'll also find that it's easier to make extensive changes in programs where magic numbers appear only as symbolic constants. 
 
+The line `nl = nw = nc = 0;` sets all three variables to zero. This is not a special case, but a consequence of the fact that an assignment is an expression with a value and assignments associate from right to left. It's as if we had written: `nl = (nw = (nc = 0));`
 
-<!-- HERE -- p. 20! -->
+The operator `||` means `OR`, so the line `if (c == ' ' || c == '\n' || c == '\t')` says "if `c` is a blank *or* `c` is a newline *or* `c` is a tab". (Recall that the escape sequence `\t` is a visible representation of the tab character.) There is ...
+
+<!-- HERE -- p. 21! -->
