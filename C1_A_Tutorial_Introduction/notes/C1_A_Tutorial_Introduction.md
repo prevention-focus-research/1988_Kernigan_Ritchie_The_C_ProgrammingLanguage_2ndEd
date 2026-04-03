@@ -969,6 +969,21 @@ Every time the program encounters the first character of a word, it counts one w
 
 The line `nl = nw = nc = 0;` sets all three variables to zero. This is not a special case, but a consequence of the fact that an assignment is an expression with a value and assignments associate from right to left. It's as if we had written: `nl = (nw = (nc = 0));`
 
-The operator `||` means `OR`, so the line `if (c == ' ' || c == '\n' || c == '\t')` says "if `c` is a blank *or* `c` is a newline *or* `c` is a tab". (Recall that the escape sequence `\t` is a visible representation of the tab character.) There is ...
+The operator `||` means `OR`, so the line `if (c == ' ' || c == '\n' || c == '\t')` says "if `c` is a blank *or* `c` is a newline *or* `c` is a tab". (Recall that the escape sequence `\t` is a visible representation of the tab character.) There is corresponding operator `&&` for `AND`; its precedence is just higher than `||`. Expressions connected by `&&` or `||` are evaluated left to right, and it is auaratneed that evaluation will stop as soon as the truth or falsehood is known. If `c` is a blank, there is no need to test whether it is a newline or tab, so these tests are not made. This isn't particularly important here, but is significant in more complicated situations, as we will soon see.
+
+The example also shows an `else`, which specifies an alternative action if the condition part of an `if` statement is false. The general form is:
+
+```c
+    if (expression)
+        statement1;
+    else
+        statement2;
+```
+
+One and only of the two statements associated with an `if`-`else` is performed. If the *expression*is true, *statement1* is executed; if not, *statement2* is executed. Each *statement* can be a single statement or several in braces. In the word count program, the other after the `else` is an `if` that controls two statements in braces. 
+
+**Exercise 1-11**: How would you test the word count program? What kinds of input are most likely to uncover bugs if there are any?
+
+**Exercise 1-12**: Write a program that prints its input one word per line.
 
 <!-- HERE -- p. 21! -->
