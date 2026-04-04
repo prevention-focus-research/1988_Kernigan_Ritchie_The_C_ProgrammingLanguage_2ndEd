@@ -984,6 +984,6 @@ One and only of the two statements associated with an `if`-`else` is performed. 
 
 **Exercise 1-11**: How would you test the word count program? What kinds of input are most likely to uncover bugs if there are any?
 
-**Exercise 1-12**: Write a program that prints its input one word per line.
-
 <!-- HERE -- p. 21! -->
+
+**Exercise 1-12**: Write a program that prints its input one word per line.
