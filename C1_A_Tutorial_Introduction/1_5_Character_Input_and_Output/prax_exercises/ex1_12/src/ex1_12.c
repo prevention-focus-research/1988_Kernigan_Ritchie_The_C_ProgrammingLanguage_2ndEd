@@ -1,9 +1,4 @@
-/* How would you test the word count program? What 
-kinds of input are most likely to uncover bugs if 
-there are any?*/
-
-/* I need to test what happens when input words with newline characters `\n`,
-blanks, `' '`, and tabs `\t`. */
+/* Write a program that prints its input one word per line*/
 
 #include <stdio.h>
 
