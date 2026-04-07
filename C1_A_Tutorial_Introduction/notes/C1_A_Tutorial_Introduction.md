@@ -108,7 +108,15 @@ produced the following error:
 
 The following program:
 ```c
+/* **Exercise 1-2**: Experiment to find out what happens when `printf`'s 
+argument string contains `\c`, where *c* is some character not listed above. */
 
+#include <stdio.h>
+
+int main()
+{
+    printf("hello, wor\cld\n");
+}
 ```
 
 produced the following warning:
@@ -1022,4 +1030,4 @@ int main()
 
 **Exercise 1-12**: Write a program that prints its input one word per line.
 
-<!-- HERE -- p. 21!+ -->
+<!-- HERE -- p. 21!++ -->
