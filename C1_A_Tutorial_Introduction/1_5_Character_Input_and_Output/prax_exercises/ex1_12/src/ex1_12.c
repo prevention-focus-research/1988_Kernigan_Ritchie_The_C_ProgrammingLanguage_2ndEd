@@ -21,6 +21,5 @@ int main()
             state = IN;
             putchar(c);
         }
-    }
-    printf("%d\n");
+    }    
 }
