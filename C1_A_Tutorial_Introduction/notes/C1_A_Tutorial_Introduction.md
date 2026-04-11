@@ -1068,4 +1068,83 @@ is
 John
 B!
 ```
-<!-- HERE -- p. 21!++++++ -->
+## 1.6: ARRAYS
+
+Let us write a program to count the number of occurrences of each digit, of white space characters (blank, tab, newline), an dall other characters. This is artificial, but it permits us to illustrate several aspects of C in one program.
+
+There are twelve categories of input, so it is convenient to use an array to hold the number of occurrences of each didigt, rather than ten individual variables. Here is one version of the program:
+
+**EXAMPLE PROGRAM**: *couting_digits_ws_others.c*
+```c
+#include <stdio.h>
+
+/* count digits, white space, others*/
+
+int main()
+{
+    int c, i, nwhite, nother;
+    int ndigit[10];
+
+    nwhite = nother = 0;
+    for (i = 0; i < 10; ++i)
+        ndigit[i] = 0;
+    
+    while ((c = getchar()) != EOF)
+        if (c >= '0' && c <= '9')
+            ++ndigit[c-'0'];
+        else if (c == ' ' || c == '\n' || c == '\t')
+            ++nwhite;
+        else
+            ++nother;
+
+    printf("digits =");
+    for (i = 0; i < 10; ++i)
+        printf(" %d", ndigit[i]);
+    printf(", white space = %d, other = %d\n",
+        nwhite, nother);
+}
+```
+
+output of this program:
+
+```
+digits = 9 3 0 0 0 0 0 0 0 1, white space = 123, other = 345
+```
+
+The declaration `int ndigit[10];` declares `ndigit` to be an array of 10 integers. Arrray subscripts alwasy start at zero in C, so the elmeents are `ndigit[0]`, `ndigit[1]`, ..., `ndigit[9]`. This is reflected in the `for` loops that initialize and print the array. 
+
+A subscript can be any integer expression, which includes integer variables like `i`, and integer constants.
+
+This particular program relies on the properties of the character representation of the digits. For example, the test `if (c >= '0' && c <= '9')` determines whether the character in `c` is a digit. If it is, the numeric value of the digit is `c - '0'`. This works only if `'0'`, `'1'`, ..., `'9'` have consecutive increasing values. Fortunately, this is true for all character sets.
+
+By definition, `char`s are just small integers, so `char` variables and constants are identical to `ints` in arithmetic expressions. This is natural and convenient; for example, `c-'0'` is an integer expression with a value between `0` and `9` corresponding to the character `'0'` to `'9'` stored in `c`, and is thus a valid subscript for teh array `ndigit`. 
+
+The decision as to whether a character is a digit, white space, or something else is made with the sequence: 
+
+```c
+       if (c >= '0' && c <= '9')
+            ++ndigit[c-'0'];
+        else if (c == ' ' || c == '\n' || c == '\t')
+            ++nwhite;
+        else
+            ++nother;
+```
+
+The pattern 
+
+```c
+       if (condition1)
+            statement1;
+        else if (condition2)
+            statement2
+
+        ...
+            ...
+
+        else
+            statementn;
+```
+
+occurs frequently in programs as a way to express a multi-way decision.  The *conditions* ...
+
+<!-- HERE -- p. 23! -->
