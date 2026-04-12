@@ -1145,6 +1145,21 @@ The pattern
             statementn;
 ```
 
-occurs frequently in programs as a way to express a multi-way decision.  The *conditions* ...
+occurs frequently in programs as a way to express a multi-way decision.  The *conditions* are evaluated in order from top until some *condition* is satisfied; at that point the corresponding *statement* part is executed, and the entire construction is finished. (Any *statement* can be several statements enclosed in braces.) If none of the conditions is satisfied, the *statement* after the final `else` is executed if it is present. If the final `else` and *statement* are omitted, as in the word count program, no action takes place. There can be any number of 
 
-<!-- HERE -- p. 23! -->
+```c
+else if (*condition*)
+    *statement*
+```
+
+groups between the initial `if` and the final `else`. 
+
+As a matter of style, it is advisable to format this construction as we have shown; if each `if` were indented pst the previous `else`, a long sequence of decisions would march off the right side of the page. 
+
+The `switch` statement, to be discussed in *C3*, provides another way to write a multi-way branch that is particularly suitable when the condition is whether soem integer or character expression matches one of a set of constants. For contrast, BKDR will present a `switch` version of this program in 'Section 3.4'.
+
+**Exercise 1-13**: Write a program to print a histogram of the lengths of words in its input. It is easy to draw a histogram with the bars horizontal;  vertical orientation is more challenging.
+
+<!-- HERE -- p. 24! -->
+
+**Exercise 1-14**: Write a program to print a histogram of different characters in its input.
