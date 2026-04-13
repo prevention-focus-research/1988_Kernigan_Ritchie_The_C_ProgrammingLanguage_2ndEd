@@ -1160,6 +1160,6 @@ The `switch` statement, to be discussed in *C3*, provides another way to write a
 
 **Exercise 1-13**: Write a program to print a histogram of the lengths of words in its input. It is easy to draw a histogram with the bars horizontal;  vertical orientation is more challenging.
 
-<!-- HERE -- p. 24! -->
+<!-- HERE -- p. 24+! -->
 
 **Exercise 1-14**: Write a program to print a histogram of different characters in its input.
