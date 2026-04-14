@@ -31,7 +31,7 @@ hello, world
 
 ### A CLOSER LOOK AT THE PROGRAM
 
-A C program, regardless of size consists of *functions* and *varibles*. A function contains *statements* that specify the computing operations to be done, and variables store values used during the computation. C functions are like the subroutines and function of 'Fortran' or the procedures and functions of 'Pascal'. Our example is a function named `main`. There is generally flexibility in functoin naming; however, `main` is special. One's program begins executing at the beginning of `main`. This means that every program must have a `main` somewhere.
+A C program, regardless of size consists of *functions* and *variables*. A function contains *statements* that specify the computing operations to be done, and variables store values used during the computation. C functions are like the subroutines and function of 'Fortran' or the procedures and functions of 'Pascal'. Our example is a function named `main`. There is generally flexibility in functoin naming; however, `main` is special. One's program begins executing at the beginning of `main`. This means that every program must have a `main` somewhere.
 
 `main` usually calls other functions -- either user-defined, or from provided libraries.
 
@@ -1309,4 +1309,4 @@ Vertical word length histogram:
 
 **Exercise 1-14**: Write a program to print a histogram of different characters in its input.
 
-<!-- HERE -- p. 24! -->
+<!-- HERE -- p. 24+! -->
