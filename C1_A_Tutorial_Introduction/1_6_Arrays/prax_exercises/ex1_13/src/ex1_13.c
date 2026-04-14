@@ -7,21 +7,26 @@ vertical orientation is more challenging*/
 #define IN  1   /* inside a word*/ 
 #define OUT 0   /* outside a word*/
 
-/* count lines, words, and characters in input */
-
 int main()
 {
-    int c, wlength, state;
+    int c, i, wlength, state;
 
     state = OUT;
     wlength = 0;
     while ((c = getchar()) != EOF) {
-                
-        if (c == ' ' || c == '\n' || c == '\t')
+        ++wlength;
+        if (c == ' ' || c == '\n' || c == '\t') {
+            printf("%d: ", (wlength-1));
+            for (i = 0; i < (wlength-1); ++i) {
+                printf("*");
+            }
+            printf("\n");
             state = OUT;
+            wlength = 0;
+        }            
         else if (state = OUT) {
+            putchar(c);
             state = IN;
-            ++wlength;
         }
     }
     return 0;    

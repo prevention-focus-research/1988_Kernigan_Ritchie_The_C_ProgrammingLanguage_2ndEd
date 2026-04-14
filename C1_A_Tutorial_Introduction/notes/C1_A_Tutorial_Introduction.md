@@ -1160,6 +1160,58 @@ The `switch` statement, to be discussed in *C3*, provides another way to write a
 
 **Exercise 1-13**: Write a program to print a histogram of the lengths of words in its input. It is easy to draw a histogram with the bars horizontal;  vertical orientation is more challenging.
 
-<!-- HERE -- p. 24+! -->
+```c
+/* Write a program to print a histogram of the lengths of words in 
+its input. It is easy to draw a histogram with the bars horizontal;  
+vertical orientation is more challenging*/
+
+#include <stdio.h>
+
+#define IN  1   /* inside a word*/ 
+#define OUT 0   /* outside a word*/
+
+int main()
+{
+    int c, i, wlength, state;
+
+    state = OUT;
+    wlength = 0;
+    while ((c = getchar()) != EOF) {
+        ++wlength;
+        if (c == ' ' || c == '\n' || c == '\t') {
+            printf("%d: ", (wlength-1));
+            for (i = 0; i < (wlength-1); ++i) {
+                printf("*");
+            }
+            printf("\n");
+            state = OUT;
+            wlength = 0;
+        }            
+        else if (state = OUT) {
+            putchar(c);
+            state = IN;
+        }
+    }
+    return 0;    
+}
+```
+
+program output:
+```
+hello world
+5: *****
+5: *****
+what is your name?
+4: ****
+2: **
+4: ****
+5: *****
+that is pretty awesome!
+4: ****
+2: **
+6: ******
+8: ********
+^C
+```
 
 **Exercise 1-14**: Write a program to print a histogram of different characters in its input.
