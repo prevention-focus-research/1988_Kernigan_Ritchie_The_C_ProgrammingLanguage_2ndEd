@@ -1309,4 +1309,4 @@ Vertical word length histogram:
 
 **Exercise 1-14**: Write a program to print a histogram of different characters in its input.
 
-<!-- HERE -- p. 24+! -->
+<!-- HERE -- p. 24++! -->
