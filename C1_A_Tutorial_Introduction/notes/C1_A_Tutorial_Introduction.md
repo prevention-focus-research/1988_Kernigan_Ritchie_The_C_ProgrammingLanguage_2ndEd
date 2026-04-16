@@ -1380,4 +1380,61 @@ Character Frequency Histogram:
 'w' : # (1)
 ```
 
-<!-- HERE -- p. 24++! -->
+## 1.7: FUNCTIONS
+
+In C, a function is equivalent to a subroutine or function in Fortran, or a procedure or function in Pascal. A function provides a convenient way to encapsulate some computation, which can then be used without worrying about its implementation. With properly designed functions, it is possibe to ignore *how* a job is done; knowing *what* is done is sufficient. C makes the use of functions easy, convenient and efficient; one will often see a short function defined and called only once, just because it clarifies some piece of code.
+
+So far we have used only funciton like `printf`, `getchar`, and `putchar` that have been provided for us; now it's time to write a few of our own. Since C has no exponentiation operator like the `**` of 'Fortran', let us illustrate the mechanics of function definition by writing a function `power(m,n)` to raise an integer `m` to a positive integer power `n`. That is, the value of `power(2,5)` is `32`. This function is not a practical exponentiation routine, since it handles only positive powers of small integers, but it's godo enough for illustration. (The standard library contains a function `pow(x,y)` that computes $x^y$).
+
+Here is the function `power` and a main program to exercise it, so one can see the whole structure all at once:
+
+**EXAMPLE PROGRAM**: *power_function.c*
+```c
+#include <stdio.h>
+
+int power(int m, int n);
+
+/* test power function */
+int main()
+{
+   int i;
+
+   for (i = 0; i < 10; ++i)
+       printf("%d %d %d\n", i, power(2,i), power(-3,i));
+}
+
+/* power: raises base to n-th power; n >=0 */
+int power(int base, int n)
+{
+    int i, p;
+
+    p = 1;
+    for (i = 1; i <= n; ++i)
+        p = p * base;
+    return p;
+}
+```
+
+program output:
+```
+0 1 1
+1 2 -3
+2 4 9
+3 8 -27
+4 16 81
+5 32 -243
+6 64 729
+7 128 -2187
+8 256 6561
+9 512 -19683
+```
+
+A function has this form:
+
+*return-type* *function-name*(*parameter declarations, if any*)
+{
+    *declarations*
+    *statements*
+}
+
+<!-- HERE -- p. 25! -->
