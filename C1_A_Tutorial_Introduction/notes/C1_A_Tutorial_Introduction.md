@@ -1437,4 +1437,12 @@ A function has this form:
     *statements*
 }
 
+Function definitions can appear in any order, and in one source file or several, although no functoin can be split between files. If the source program appears in several files, one may have to say more to compile and load it than if it all appears in one, but that is an OS matter, not a language attribute. For the momeent, we will assume that both functions are in the same file, so whateer one has learned about running C programs will still work.
+
+The function power is called `twice` by `main` in the line: `printf("%d %d %d\n", i, power(2,i), power(-3,i));`. Each call passes two arguments to `power`, which each time returns an integer to be formatted and printed. In an expression, `power(2,i)` is an integer just as `2` and `i` are. (Not all functions produce an integer value; we will take this up in *C4*.)
+
+The first line of `power` itself, `int power(int base, int n)`, declares the parameter types and names, and the type of the result that the function returns. The names used by `power` for its parameters are local to `power`, and are not visible to any other function: other routines can use the same names without conflict. This is also true of the varibles `i` and `p`: the `i` in `power` is unrleated to the `i` in `main`.
+
+We will generally use *parameter* for a variable named in the parenthesized lsit in a funciton definition, and *argument* for the value used in a call of the function. the terms *formal argument* and *actual argument* are sometimes used for the same distinction. 
+
 <!-- HERE -- p. 25! -->
