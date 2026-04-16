@@ -1070,9 +1070,9 @@ B!
 ```
 ## 1.6: ARRAYS
 
-Let us write a program to count the number of occurrences of each digit, of white space characters (blank, tab, newline), an dall other characters. This is artificial, but it permits us to illustrate several aspects of C in one program.
+Let us write a program to count the number of occurrences of each digit, of white space characters (blank, tab, newline), and all other characters. This is artificial, but it permits us to illustrate several aspects of C in one program.
 
-There are twelve categories of input, so it is convenient to use an array to hold the number of occurrences of each didigt, rather than ten individual variables. Here is one version of the program:
+There are twelve categories of input, so it is convenient to use an array to hold the number of occurrences of each didit, rather than ten individual variables. Here is one version of the program:
 
 **EXAMPLE PROGRAM**: *couting_digits_ws_others.c*
 ```c
@@ -1308,5 +1308,76 @@ Vertical word length histogram:
 ```
 
 **Exercise 1-14**: Write a program to print a histogram of different characters in its input.
+
+```c
+/* Write a program to print a histogram of different characters in 
+its input. */
+
+#include <stdio.h>
+
+/* Maximum number of different characters in standard ASCII */
+#define MAX_CHARS 256
+
+int main() {
+    int c, i, j;
+    int counts[MAX_CHARS];
+
+    /* Initialize all character counts to zero */
+    for (i = 0; i < MAX_CHARS; i++) {
+        counts[i] = 0;
+    }
+
+    /* Read characters until end of input */
+    while ((c = getchar()) != EOF) {
+        if (c >= 0 && c < MAX_CHARS) {
+            counts[c]++;
+        }
+    }
+
+    printf("\nCharacter Frequency Histogram:\n");
+
+    /* Loop through the array and print a bar for characters that appeared */
+    for (i = 0; i < MAX_CHARS; i++) {
+        if (counts[i] > 0) {
+            /* Format the label for readability */
+            if (i == ' ') {
+                printf("' ' : ");
+            } else if (i == '\n') {
+                printf("'\\n': ");
+            } else if (i == '\t') {
+                printf("'\\t': ");
+            } else if (i >= 32 && i <= 126) {
+                printf("'%c' : ", i);
+            } else {
+                printf("0x%02X: ", i); /* Hex for non-printables */
+            }
+
+            /* Print a bar of '#' characters representing the frequency */
+            for (j = 0; j < counts[i]; j++) {
+                putchar('#');
+            }
+            printf(" (%d)\n", counts[i]);
+        }
+    }
+
+    return 0;
+}
+```
+
+program output:
+```
+hello world
+
+Character Frequency Histogram:
+'\n': # (1)
+' ' : # (1)
+'d' : # (1)
+'e' : # (1)
+'h' : # (1)
+'l' : ### (3)
+'o' : ## (2)
+'r' : # (1)
+'w' : # (1)
+```
 
 <!-- HERE -- p. 24++! -->

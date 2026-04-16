@@ -1,28 +1,54 @@
-#include <stdio.h>
+
 
 /* Write a program to print a histogram of different characters in 
 its input. */
 
-int main()
-{
-    int c, i, nwhite, nother;
-    int ndigit[10];
+#include <stdio.h>
 
-    nwhite = nother = 0;
-    for (i = 0; i < 10; ++i)
-        ndigit[i] = 0;
-    
-    while ((c = getchar()) != EOF)
-        if (c >= '0' && c <= '9')
-            ++ndigit[c-'0'];
-        else if (c == ' ' || c == '\n' || c == '\t')
-            ++nwhite;
-        else
-            ++nother;
+/* Maximum number of different characters in standard ASCII */
+#define MAX_CHARS 256
 
-    printf("digits =");
-    for (i = 0; i < 10; ++i)
-        printf(" %d", ndigit[i]);
-    printf(", white space = %d, other = %d\n",
-        nwhite, nother);
+int main() {
+    int c, i, j;
+    int counts[MAX_CHARS];
+
+    /* Initialize all character counts to zero */
+    for (i = 0; i < MAX_CHARS; i++) {
+        counts[i] = 0;
+    }
+
+    /* Read characters until end of input */
+    while ((c = getchar()) != EOF) {
+        if (c >= 0 && c < MAX_CHARS) {
+            counts[c]++;
+        }
+    }
+
+    printf("\nCharacter Frequency Histogram:\n");
+
+    /* Loop through the array and print a bar for characters that appeared */
+    for (i = 0; i < MAX_CHARS; i++) {
+        if (counts[i] > 0) {
+            /* Format the label for readability */
+            if (i == ' ') {
+                printf("' ' : ");
+            } else if (i == '\n') {
+                printf("'\\n': ");
+            } else if (i == '\t') {
+                printf("'\\t': ");
+            } else if (i >= 32 && i <= 126) {
+                printf("'%c' : ", i);
+            } else {
+                printf("0x%02X: ", i); /* Hex for non-printables */
+            }
+
+            /* Print a bar of '#' characters representing the frequency */
+            for (j = 0; j < counts[i]; j++) {
+                putchar('#');
+            }
+            printf(" (%d)\n", counts[i]);
+        }
+    }
+
+    return 0;
 }
