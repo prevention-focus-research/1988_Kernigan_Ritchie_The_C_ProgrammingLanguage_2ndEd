@@ -1443,6 +1443,18 @@ The function power is called `twice` by `main` in the line: `printf("%d %d %d\n"
 
 The first line of `power` itself, `int power(int base, int n)`, declares the parameter types and names, and the type of the result that the function returns. The names used by `power` for its parameters are local to `power`, and are not visible to any other function: other routines can use the same names without conflict. This is also true of the varibles `i` and `p`: the `i` in `power` is unrleated to the `i` in `main`.
 
-We will generally use *parameter* for a variable named in the parenthesized lsit in a funciton definition, and *argument* for the value used in a call of the function. the terms *formal argument* and *actual argument* are sometimes used for the same distinction. 
+BKDR will generally use *parameter* for a variable named in the parenthesized lsit in a funciton definition, and *argument* for the value used in a call of the function. the terms *formal argument* and *actual argument* are sometimes used for the same distinction. 
 
-<!-- HERE -- p. 25! -->
+The value that `power` computes is returned to `main` by the `return` statement. Any expression may follow `return`: `return *expression*;`
+
+A function need not return a value; a `return` statement with no expressoin causes control, but no useful value, to be returned to the caller, as does "falling off the end" of a funciton by reaching the terminating right brace. And the calling funciton can ignore a value returned by a function. 
+
+One may have noticedf that there is a `return` statement at the end of `main`. Since `main` is a funciton like any other, it my return a value to its caller, which is in effect the environment in which the program was executed. Typically, a return value of zero implies normal termination; non-zero values signal unusual or erroneous termination conditions. In the interests of simplicity, BIDR  omitted `return` statements from `main` fuctions up to this point, but will include them hereafter, as a reminder that programs shoudl return status to their environment.
+
+The declaration `int power(int m, int n);` just before `main` says that `power` is a functon that expects two `int` arguments and returns an `int`. This declaration, which is called a *function prototype*, has to agree with the definition and uses of `power`. It is an error if the definition of a function or any uses of it do not agree with its protoype. 
+
+Parameter names need not agree. Indeed, parameter names are optional in a function prototype, so for the prototype, one could have written `int power(int, int);`. Well-chosen names are good documentaiton, however, so BKDR will often use them. 
+
+A note of history: ...
+
+<!-- HERE -- p. 26! -->
