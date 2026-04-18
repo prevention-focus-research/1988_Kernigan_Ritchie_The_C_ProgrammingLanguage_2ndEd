@@ -1455,6 +1455,29 @@ The declaration `int power(int m, int n);` just before `main` says that `power` 
 
 Parameter names need not agree. Indeed, parameter names are optional in a function prototype, so for the prototype, one could have written `int power(int, int);`. Well-chosen names are good documentaiton, however, so BKDR will often use them. 
 
-A note of history: ...
+A note of history: The biggest change between ANSI C and earlier versions is how functions are declared and defined. In the original definition of C, the power function would have been writtne as follows:
 
-<!-- HERE -- p. 26! -->
+**EXAMPLE PROGRAM**: *power_function2.c* (different than program below)
+```c
+#include <stdio.h>
+
+/* power: raise base to n-th power; n >= 0 */
+/*        (old-style version) */
+
+power(base, n)
+int base, n;
+{
+    int i, p;
+
+    p = 1;
+    for (i = 1; i <= n; ++i)
+        p = p * base;
+    return p;
+}
+```
+
+The parameters are named between the parentheses, and their types are declared before the opening left brace; undelcared parameters are taken as `int`. (the body of the function is the same as before.)
+
+The declaration of `power` at the beginning of the program would have looked like this: `int power();`. No parameter list was permitted, so the compiler would not readily check that `power` was being called correctly. ...
+
+<!-- HERE -- p. 27! -->
