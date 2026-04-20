@@ -1478,6 +1478,10 @@ int base, n;
 
 The parameters are named between the parentheses, and their types are declared before the opening left brace; undelcared parameters are taken as `int`. (the body of the function is the same as before.)
 
-The declaration of `power` at the beginning of the program would have looked like this: `int power();`. No parameter list was permitted, so the compiler would not readily check that `power` was being called correctly. ...
+The declaration of `power` at the beginning of the program would have looked like this: `int power();`. No parameter list was permitted, so the compiler would not readily check that `power` was being called correctly. Indeed, since by default `power` would have been assumed to return ain `int`, the entire declarations might well have been omitted.
+
+The new syntax of function prototypes makes it much easier for a compiler to detect errors in the number of argumnents or their types. The old style of declaration and definition still works in ANSI C, at least for a transition period, but BKDR strongly recommends that one use the new form when one has a compiler that support it. 
+
+**EXERCISE 1-15**: Rewrite the temperature conversion program of 'Section 1.2' to use a function for conversion.
 
 <!-- HERE -- p. 27! -->
