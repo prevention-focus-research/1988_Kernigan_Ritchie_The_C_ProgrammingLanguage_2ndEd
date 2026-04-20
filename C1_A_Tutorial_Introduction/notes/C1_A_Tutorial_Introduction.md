@@ -1484,4 +1484,4 @@ The new syntax of function prototypes makes it much easier for a compiler to det
 
 **EXERCISE 1-15**: Rewrite the temperature conversion program of 'Section 1.2' to use a function for conversion.
 
-<!-- HERE -- p. 27! -->
+<!-- HERE -- p. 27+! -->
