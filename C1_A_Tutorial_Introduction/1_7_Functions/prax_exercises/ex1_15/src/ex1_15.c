@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-int getcelsius(int fahr);
+float getcelsius(float fahr);
 
 /* Rewrite the temperature conversion program of 'Section 1.2' 
 to use a function for conversion.*/
 
-int getcelsius(int fahr)
+float getcelsius(float fahr)
 {
-    int celsius;
+    float celsius;
     celsius = 5 * (fahr-32) / 9;
     return celsius;
 }
@@ -18,7 +18,7 @@ int getcelsius(int fahr)
 
 int main()
 {
-    int fahr, celsius;
+    float fahr, celsius;
     int lower, upper, step;
 
     lower = 0;      /* lower limit of temperature table */ 
@@ -28,7 +28,7 @@ int main()
     fahr = lower;
     while (fahr <= upper) {
         celsius = getcelsius(fahr);
-        printf("%d\t%d\n", fahr, celsius);
+        printf("%3.0f %6.1f\n", fahr, celsius);
         fahr = fahr + step;
     }
 }
