@@ -1544,4 +1544,24 @@ program output:
 
 One spect of C functions my be unfamiliar to programmers who are used to some other languages, particulalry 'Fortran'. In C, all function arguments are passed "by value." This means that the called function is given the values of its arguments in temporary variables rather than the originals. This leads to some different properties than are seen with "call by reference" languages like 'Fortran' or with `var` parameters in 'Pascal', in which the called routine hs access to the originl argument, not a local copy. 
 
+The main distinction is that in C the called function cannot directly alter a variable in the calling function; it can only alter its private, temporary copy.
+
+Call by value is an asset, however, not a liability. It usually leads tomore compact programs with fewer extraneous variables, because parameters can be treated as conveniently initialized local variables in the called routine. For example, here is a version of `power` that make use of this property:
+
+**EXAMPLE PROGRAM**: *power_function3.c*
+
+```c
+/* power: raise base to n-th power; n>=0; version 2 */ 
+int power(int base, int n)
+{
+    int p;
+
+    for (p = 1; n > 0; --n)
+        p = p * base;
+    return p;
+}
+```
+
+The parameter `n` is used as a tempoary variable, and is counted down (a for loop that runs backwards)
+
 <!-- HERE -- p. 27++! -->
