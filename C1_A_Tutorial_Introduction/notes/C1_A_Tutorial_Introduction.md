@@ -1570,6 +1570,7 @@ The sotry is different for arrays. When the name of an array is used as an argum
 
 ## 1.9: CHARACTER ARRAYS
 
-**EXAMPLE PROGRAM**: **
-
-<!-- HERE -- p. 28! -->
+**EXAMPLE PROGRAM**: *get_longest_line.c*
+```c
+// HERE -- p. 29!
+```
