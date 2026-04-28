@@ -1661,4 +1661,18 @@ Some functions return a useful value; others, like `copy`, are used only for the
 |:---|:---|:---|:---|:---|:---|:---|
 |`h`| `e`|`l`|`l`|`o`|`\n`|`\0`|
 
+The `%s` format specification in `printf` expects the corresponding argument to a string represented in this form. `copy` also relies on the fact that its input argument is terminated by `'\0'`, and it copies this character into the output argument. (All of this implies that `'\0'` is not a part of normal text.)
+
+It is worth mentioning in passing that even a program as small as this one presents some sticky design problems. For example, what should min do if it encounters a line which is bigger than its limit? `getline` works safely, in that it stops collecting when the array is full, even if no newline has been seen. By testing the length and the last character returned, `main` cna determine whether the line was too long, and then cope as it wishes. In the interests of brevity, BKDR have ignored the issue.
+
+There is no way fo ra user of `getline` to know in advance how long an input line might be, so `getline` checks for overflow. On the other hand, the user of `copy` already knows (or can find out) how big the strings are, so we have chosen not to add error checking to it. 
+
+**Exercise 1-16**: Revise the main routine of the longest-line program so it will correctly print the length of arbitrarily long input lines, and as much as possible of the text.
+
 <!-- HERE -- p. 30! -->
+
+**Exercise 1-17**: Write a program to print all input lines that are longer than 80 characters.
+
+**Exercise 1-18**: Write a program to remove trailing blanks and tabs from each line of input, and to delete entirely blank lines.
+
+**Exercise 1-19**: Write a function `reverse(s)` that reverses the character string `s`. Use it to write a program that reverses its input a line at a time.
