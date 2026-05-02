@@ -1669,7 +1669,7 @@ There is no way fo ra user of `getline` to know in advance how long an input lin
 
 **Exercise 1-16**: Revise the main routine of the longest-line program so it will correctly print the length of arbitrarily long input lines, and as much as possible of the text.
 
-<!-- HERE -- p. 30+bbb! -->
+<!-- HERE -- p. 30+bbbb! -->
 
 **Exercise 1-17**: Write a program to print all input lines that are longer than 80 characters.
 
