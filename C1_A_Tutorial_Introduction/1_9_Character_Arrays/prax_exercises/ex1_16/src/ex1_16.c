@@ -24,7 +24,10 @@ int main()
             copy(longest, line);
         }
     if (max > 0)    /* there was a line */
-        printf("%s", longest);
+        printf("The longest line is %d characters long.", max);
+        printf("\n");
+        printf("The line is: %s", longest);
+        
     return 0;
 };
 

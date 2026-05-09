@@ -1669,9 +1669,78 @@ There is no way fo ra user of `getline` to know in advance how long an input lin
 
 **Exercise 1-16**: Revise the main routine of the longest-line program so it will correctly print the length of arbitrarily long input lines, and as much as possible of the text.
 
-<!-- HERE -- p. 30+bbbbbbbb++! -->
+```c
+#include <stdio.h>
+
+/* Exercise 1-16: Revise the main routine of the longest-line program 
+so it will correctly print the length of arbitrarily long input lines, 
+and as much as possible of the text. */
+
+#define MAXLINE 1000        /* maximum input line size */
+
+int getline(char line[], int maxline);
+void copy(char to[], char from[]);
+
+/* print longest input line */
+int main() 
+{
+    int len;                /* current line length */
+    int max;                /* maximum length seetn so far*/
+    char line[MAXLINE];         /* current input line*/
+    char longest[MAXLINE];      /* longest line saved here */
+
+    max = 0;
+    while ((len = getline(line, MAXLINE)) > 0)
+        if (len > max) {
+            max = len;
+            copy(longest, line);
+        }
+    if (max > 0)    /* there was a line */
+        printf("The longest line is %d characters long.", max);
+        printf("\n");
+        printf("The line is: %s", longest);
+        
+    return 0;
+};
+
+/* getline: read a line into s, return length */
+int getline(char s[], int lim)
+{
+    int c, i;
+
+    for (i = 0; i < lim-1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        s[i] = c;
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
+}
+
+/* copy: copy 'from' into 'to'; assume to is big enough */
+void copy(char to[], char from[])
+{
+    int i;
+
+    i = 0;
+    while ((to[i] = from[i]) != '\0')
+        ++i;
+}
+```
+
+output:
+
+```
+hello world
+what is your name?
+The longest line is 19 characters long.
+The line is: what is your name?
+```
 
 **Exercise 1-17**: Write a program to print all input lines that are longer than 80 characters.
+
+<!-- HERE -- p. 30! -->
 
 **Exercise 1-18**: Write a program to remove trailing blanks and tabs from each line of input, and to delete entirely blank lines.
 
