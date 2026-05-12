@@ -18,16 +18,15 @@ int main()
     char longest[MAXLINE];      /* longest line saved here */
 
     max = 0;
-    while ((len = getline(line, MAXLINE)) > 0)
-        if (len > max) {
+    while ((len = getline(line, MAXLINE)) > 0) {
+        if (len > OUTLEN) {
             max = len;
             copy(longest, line);
+            printf("The following line is %d characters long.", max);
+            printf("\n");
+            printf("The line is: %s", longest);         
         }
-    if (max > 0)    /* there was a line */
-        printf("The longest line is %d characters long.", max);
-        printf("\n");
-        printf("The line is: %s", longest);
-        
+    }   
     return 0;
 };
 

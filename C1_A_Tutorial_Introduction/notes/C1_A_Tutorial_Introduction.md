@@ -1740,7 +1740,7 @@ The line is: what is your name?
 
 **Exercise 1-17**: Write a program to print all input lines that are longer than 80 characters.
 
-<!-- HERE -- p. 30!++ -->
+<!-- HERE -- p. 30!+++ -->
 
 **Exercise 1-18**: Write a program to remove trailing blanks and tabs from each line of input, and to delete entirely blank lines.
 
