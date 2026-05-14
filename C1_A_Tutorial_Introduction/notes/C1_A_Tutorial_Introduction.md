@@ -1740,8 +1740,61 @@ The line is: what is your name?
 
 **Exercise 1-17**: Write a program to print all input lines that are longer than 80 characters.
 
-<!-- HERE -- p. 30!++++ -->
+```c
+
+
+/* Exercise 1-16: Write a program to print all input lines that are 
+longer than 80 characters */
+
+#include <stdio.h>
+
+#define MAXLINE 1000    /* Maximum input line length */
+#define LIMIT 80        /* Threshold for printing */
+
+int getline(char line[], int maxline);
+
+int main() {
+    int len;                /* current line length */
+    char line[MAXLINE];     /* current input line */
+
+    while ((len = get_line(line, MAXLINE)) > 0) {
+        if (len > LIMIT) {
+            printf("%s", line);
+        }
+    }
+
+    return 0;
+}
+
+/* Function to read a line into s, return length */
+int get_line(char s[], int lim) {
+    int c, i;
+
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
+        s[i] = c;
+    }
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
+}
+```
+
+program output:
+
+```
+hello world
+what's your name?
+....................................................................................
+....................................................................................
+hello...............................................................................
+hello...............................................................................
+```
 
 **Exercise 1-18**: Write a program to remove trailing blanks and tabs from each line of input, and to delete entirely blank lines.
+
+<!-- HERE -- p. 30! -->
 
 **Exercise 1-19**: Write a function `reverse(s)` that reverses the character string `s`. Use it to write a program that reverses its input a line at a time.
