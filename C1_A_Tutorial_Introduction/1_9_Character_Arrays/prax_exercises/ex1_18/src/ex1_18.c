@@ -25,7 +25,7 @@ int main() {
 
 /* Function to read a line into s, return length */
 int get_line(char s[], int lim) {
-    int c, i;
+    int c, i, nt, nb;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
         s[i] = c;
