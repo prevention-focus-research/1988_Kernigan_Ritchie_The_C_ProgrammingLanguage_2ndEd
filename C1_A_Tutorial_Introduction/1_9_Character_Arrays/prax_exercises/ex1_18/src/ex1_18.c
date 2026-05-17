@@ -34,6 +34,10 @@ int get_line(char s[], int lim) {
         s[i] = c;
         ++i;
     }
+    if (c == '\t' || c == '\b') {
+       s[i] = s[i-1]; 
+       i--;
+    }
     s[i] = '\0';
     return i;
 }
