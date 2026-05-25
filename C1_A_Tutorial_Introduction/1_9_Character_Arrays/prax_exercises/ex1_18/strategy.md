@@ -18,6 +18,12 @@ and to delete entirely blank lines.
 
 * objective 1: Exercises 1-8, 1-9, and 1-10 would be most relevant. 
 
+1. remove trailing blanks from each line of input.
+
+```c
+
+```
+
 #### ex 1-8: 
 
 ```c
