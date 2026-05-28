@@ -20,9 +20,10 @@ and to delete entirely blank lines.
 
 1. remove trailing blanks from each line of input.
 
-```c
 
-```
+trailing blanks -- 
+
+
 
 #### ex 1-8: 
 
