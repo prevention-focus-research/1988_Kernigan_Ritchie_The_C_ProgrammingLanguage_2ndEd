@@ -20,9 +20,16 @@ and to delete entirely blank lines.
 
 1. remove trailing blanks from each line of input.
 
+the last character of a line cannot be a `'\t'` or `' '` character
 
-trailing blanks -- 
+>>> A trailing blank character is any invisible space, tab, or carriage return located at the very end of a line of text or string, immediately preceding a line break. These invisible characters are often overlooked but significantly impact code execution, file comparisons, and data processing
 
+we retrieve the line -- the we do two things:
+
+--deleteing blank lines
+1. go through the line and check that at least one character is some character other than a blank or tab.
+2. if it's not, we return just the null character.
+--trailing blanks problem is more difficult. 
 
 
 #### ex 1-8: 
