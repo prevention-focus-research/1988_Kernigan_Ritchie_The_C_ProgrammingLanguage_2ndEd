@@ -31,6 +31,34 @@ we retrieve the line -- the we do two things:
 2. if it's not, we return just the null character.
 --trailing blanks problem is more difficult. 
 
+```c
+int is_non_blank_line(char line[] int max);
+
+int is_non_blank_line(char s[], int lim)
+{
+    int c, i;
+
+    for (i = 0; i < lim-1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        s[i] = c;
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
+}
+
+
+void copy(char to[], char from[])
+{
+    int i;
+
+    i = 0;
+    while ((to[i] = from[i]) != '\0')
+        ++i;
+}
+```
+
 
 #### ex 1-8: 
 
