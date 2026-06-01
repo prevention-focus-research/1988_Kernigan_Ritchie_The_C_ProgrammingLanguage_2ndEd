@@ -36,11 +36,15 @@ int is_non_blank_line(char line[] int max);
 
 int is_non_blank_line(char s[], int lim)
 {
-    int c, i;
+    int nb, i;
 
-    for (i = 0; i < lim-1; ++i)
-        if (s[i] == '\n') {
-        
+    i = 0;
+    while (s[i] != '\0')
+        if (s[i] == ' ' || s[i] == '\t') {
+            ++nb;
+        }
+        ++i;
+    if (!nb == (lim-1))  return 0;    
 }
 
 
