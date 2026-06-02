@@ -4,6 +4,26 @@
 
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
+int is_non_blank_line(char line[], int max);
+int rm_tr_blank_tabs(char line[], int max);
+
+int rm_tr_blank_tabs(char s[], int lim) {
+    
+}
+
+int is_non_blank_line(char s[], int lim)
+{
+    int nb, i;
+
+    i = 0;
+    while (s[i] != '\0')
+        if (s[i] == ' ' || s[i] == '\t') {
+            ++nb;
+        }
+        ++i;
+    if (!nb == (lim-1))  return 0;    
+}
+
 
 /* getline: read a line into s, return length, removing trailing blanks and tabs */
 int getline_no_tb_tt(char s[], int lim)
