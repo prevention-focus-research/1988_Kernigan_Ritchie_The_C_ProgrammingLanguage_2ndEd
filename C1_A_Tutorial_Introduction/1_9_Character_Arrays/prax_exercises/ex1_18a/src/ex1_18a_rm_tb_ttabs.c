@@ -5,10 +5,18 @@
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
 int is_non_blank_line(char line[], int max);
-int rm_tr_blank_tabs(char line[], int max);
+int rm_tr_blank_tabs(char old[], char new[], int max);
+int getline_no_tb_tt(char s[], int lim);
 
-int rm_tr_blank_tabs(char s[], int lim) {
-    
+
+
+int rm_tr_blank_tabs(char o[], char n[], int lim) {
+
+    int i;
+
+    while (o[(lim-1)-i] == ' ' || o[(lim-1)-i] == '\t') {
+        
+    }
 }
 
 int is_non_blank_line(char s[], int lim)
