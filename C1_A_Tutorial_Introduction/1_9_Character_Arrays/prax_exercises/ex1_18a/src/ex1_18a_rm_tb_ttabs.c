@@ -15,7 +15,7 @@ int rm_tr_blank_tabs(char o[], char n[], int lim) {
     int i;
 
     while (o[(lim-1)-i] == ' ' || o[(lim-1)-i] == '\t') {
-        
+        // 
     }
 }
 
