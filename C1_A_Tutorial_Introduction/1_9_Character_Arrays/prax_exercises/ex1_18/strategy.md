@@ -24,6 +24,12 @@ the last character of a line cannot be a `'\t'` or `' '` character
 
 >>> A trailing blank character is any invisible space, tab, or carriage return located at the very end of a line of text or string, immediately preceding a line break. These invisible characters are often overlooked but significantly impact code execution, file comparisons, and data processing
 
+pseudo code: 
+
+if the last character is a blank or tab, copy the line until the character preceding the last one.
+
+else, return the line. 
+
 we retrieve the line -- the we do two things:
 
 --deleteing blank lines
