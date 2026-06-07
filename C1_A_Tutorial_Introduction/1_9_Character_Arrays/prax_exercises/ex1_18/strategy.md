@@ -26,7 +26,10 @@ the last character of a line cannot be a `'\t'` or `' '` character
 
 pseudo code: 
 
-if the last character is a blank or tab, copy the line until the character preceding the last one.
+if the line length is > 0:
+    if the last character is a blank or tab, copy the line until the character preceding the last one.
+        repeat until there are no more characters left, or the last character is neither a blank nor a tab.
+
 
 else, return the line. 
 
