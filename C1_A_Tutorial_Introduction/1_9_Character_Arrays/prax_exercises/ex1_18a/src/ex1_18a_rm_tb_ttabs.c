@@ -4,6 +4,7 @@
 
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
+int copy_substring(char to[], char from[], int start, int stop);
 int is_non_blank_line(char line[], int max);
 int rm_tr_blank_tabs(char old[], char new[], int max);
 
@@ -54,6 +55,12 @@ void copy(char to[], char from[])
     i = 0;
     while ((to[i] = from[i]) != '\0')
         ++i;
+}
+
+/* return a substring */
+int copy_substring(char to[], char from[], int start, int stop)
+{
+
 }
 
 
