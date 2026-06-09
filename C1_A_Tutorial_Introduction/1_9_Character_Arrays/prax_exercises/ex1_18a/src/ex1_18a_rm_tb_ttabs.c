@@ -58,8 +58,17 @@ void copy(char to[], char from[])
 }
 
 /* return a substring */
-int copy_substring(char to[], char from[], int start, int stop)
+int copy_substring(char from[], char to[], int start, int stop)
 {
+    int i, j, len;
+    i=0;
+    while (from[i] != '\0') ++i;
+
+    len = i-1;
+    for (j=0; j < len; ++j)
+        to[j] = from[j];
+    to[j] = '\0';
+    return to;
 
 }
 
