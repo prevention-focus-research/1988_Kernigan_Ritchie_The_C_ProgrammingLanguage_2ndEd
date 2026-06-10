@@ -5,11 +5,18 @@
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
 int copy_substring(char to[], char from[], int start, int stop);
+int get_line_length(char line[]);
 int is_non_blank_line(char line[], int max);
 int rm_tr_blank_tabs(char old[], char new[], int max);
 
 /* remove trailing blanks and tabs from the line */
 int rm_tr_blank_tabs(char o[], char n[], int lim) {
+
+    /* pseudo code: 
+        if the line length is > 0:
+            if the last character is a blank or tab, copy the line until the character preceding the last one.
+                repeat until there are no more characters left, or the last character is neither a blank nor a tab.
+        else, return the line. */
 
     int i;
 
@@ -57,6 +64,17 @@ void copy(char to[], char from[])
         ++i;
 }
 
+/* get line length */
+int get_line_length(char line[])
+{
+    int i;
+
+    i = 0;
+    while (line[i] != '\0')
+        ++i;
+    return i;
+}
+
 /* return a substring */
 int copy_substring(char from[], char to[], int start, int stop)
 {
@@ -69,7 +87,6 @@ int copy_substring(char from[], char to[], int start, int stop)
         to[j] = from[j];
     to[j] = '\0';
     return to;
-
 }
 
 
