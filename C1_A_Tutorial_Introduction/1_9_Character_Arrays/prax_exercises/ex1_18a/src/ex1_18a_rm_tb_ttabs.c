@@ -18,7 +18,13 @@ int rm_tr_blank_tabs(char o[], char n[], int lim) {
                 repeat until there are no more characters left, or the last character is neither a blank nor a tab.
         else, return the line. */
 
-    int i;
+    int line_len, i;
+
+    line_len = get_line_length(0);
+
+    if (line_len > 0 && o[line_len-1] == (' ' || '\t')) {
+        
+    }
 
     while (o[(lim-1)-i] == ' ' || o[(lim-1)-i] == '\t') {
         // 
