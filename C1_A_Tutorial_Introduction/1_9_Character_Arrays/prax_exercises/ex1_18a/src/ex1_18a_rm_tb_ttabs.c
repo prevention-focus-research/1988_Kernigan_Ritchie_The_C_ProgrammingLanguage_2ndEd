@@ -22,7 +22,8 @@ int rm_tr_blank_tabs(char o[], char n[], int lim) {
 
     line_len = get_line_length(o);
     while (line_len > 0 && (o[line_len-1] == ' ' || o[line_len-1] =='\t')) {
-        line_len = get_line_length(copy_substring(o,n, 0, line_len-1));
+        o = copy_substring(o,n,0,line_len-1);
+        line_len = get_line_length(o);
     }    
 }
 
