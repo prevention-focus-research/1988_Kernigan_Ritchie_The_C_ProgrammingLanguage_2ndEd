@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+#define MAXLINE 1000        /* maximum input line size */
+
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
 int copy_substring(char to[], char from[], int start, int stop);
@@ -92,17 +94,26 @@ int copy_substring(char from[], char to[], int start, int stop)
 }
 
 
-int main()
+int main() 
 {
-    int c;
+    int len;                /* current line length */
+    int max;                /* maximum length seetn so far*/
+    char line[MAXLINE];         /* current input line*/
+    char longest[MAXLINE];      /* longest line saved here */
 
-    while ((c = getchar()) != EOF) {
-        if (c != ' ' && c != '\t') {
-            putchar(c);
+    max = 0;
+    while ((len = getline(line, MAXLINE)) > 0)
+        if (len > max) {
+            max = len;
+            copy(longest, line);
         }
-    }
+    if (max > 0)    /* there was a line */
+        printf("The longest line is %d characters long.", max);
+        printf("\n");
+        printf("The line is: %s", longest);
+        
     return 0;
-}
+};
 
 
 
