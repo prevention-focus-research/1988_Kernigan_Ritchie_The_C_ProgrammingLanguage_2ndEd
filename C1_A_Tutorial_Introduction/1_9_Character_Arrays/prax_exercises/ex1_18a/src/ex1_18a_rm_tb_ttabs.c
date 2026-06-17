@@ -26,7 +26,8 @@ int rm_tr_blank_tabs(char o[], char n[], int lim) {
     while (line_len > 0 && (o[line_len-1] == ' ' || o[line_len-1] =='\t')) {
         o = copy_substring(o,n,0,line_len-1);
         line_len = get_line_length(o);
-    }    
+    }   
+    return o; 
 }
 
 /* check if the entire line is composed of blanks or tabs. */
