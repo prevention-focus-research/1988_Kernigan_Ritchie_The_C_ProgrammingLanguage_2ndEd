@@ -98,20 +98,20 @@ int copy_substring(char from[], char to[], int start, int stop)
 int main() 
 {
     int len;                /* current line length */
-    int max;                /* maximum length seetn so far*/
+    // int max;                /* maximum length seetn so far*/
     char line[MAXLINE];         /* current input line*/
     char longest[MAXLINE];      /* longest line saved here */
 
-    max = 0;
+    // max = 0;
     while ((len = getline(line, MAXLINE)) > 0)
-        if (len > max) {
-            max = len;
-            copy(longest, line);
-        }
-    if (max > 0)    /* there was a line */
-        printf("The longest line is %d characters long.", max);
-        printf("\n");
-        printf("The line is: %s", longest);
+        // if (len > max) {
+            // max = len;
+        copy(longest, line);
+        // }
+    // if (max > 0)    /* there was a line */
+    //     printf("The longest line is %d characters long.", max);
+    //     printf("\n");
+    //     printf("The line is: %s", longest);
         
     return 0;
 };
