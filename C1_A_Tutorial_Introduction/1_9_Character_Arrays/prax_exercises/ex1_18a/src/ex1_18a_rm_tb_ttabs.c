@@ -6,13 +6,13 @@
 
 int getline(char line[], int maxline);
 void copy(char to[], char from[]);
-int copy_substring(char to[], char from[], int start, int stop);
+int copy_substring(char to[], char from[]);
 int get_line_length(char line[]);
 int is_non_blank_line(char line[], int max);
-int rm_tr_blank_tabs(char old[], char new[], int max);
+int rm_tr_blank_tabs(char old[], char new[]);
 
 /* remove trailing blanks and tabs from the line */
-int rm_tr_blank_tabs(char o[], char n[], int lim) {
+int rm_tr_blank_tabs(char o[], char n[]) {
 
     /* pseudo code: 
         if the line length is > 0:
@@ -24,7 +24,7 @@ int rm_tr_blank_tabs(char o[], char n[], int lim) {
 
     line_len = get_line_length(o);
     while (line_len > 0 && (o[line_len-1] == ' ' || o[line_len-1] =='\t')) {
-        o = copy_substring(o,n,0,line_len-1);
+        o = copy_substring(o,n);
         line_len = get_line_length(o);
     }   
     return o; 
@@ -81,7 +81,7 @@ int get_line_length(char line[])
 }
 
 /* return a substring */
-int copy_substring(char from[], char to[], int start, int stop)
+int copy_substring(char from[], char to[])
 {
     int i, j, len;
     i=0;
@@ -112,6 +112,7 @@ int main()
     //     printf("The longest line is %d characters long.", max);
     //     printf("\n");
     //     printf("The line is: %s", longest);
+    // rm_tr_blank_tabs(char o[], char n[])
         
     return 0;
 };
