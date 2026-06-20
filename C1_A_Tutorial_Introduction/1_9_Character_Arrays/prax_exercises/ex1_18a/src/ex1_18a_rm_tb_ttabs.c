@@ -24,7 +24,7 @@ int rm_tr_blank_tabs(char o[], char n[]) {
 
     line_len = get_line_length(o);
     while (line_len > 0 && (o[line_len-1] == ' ' || o[line_len-1] =='\t')) {
-        o = copy_substring(o,n);
+        int o = copy_substring(o,n);
         line_len = get_line_length(o);
     }   
     return o; 
@@ -101,6 +101,7 @@ int main()
     // int max;                /* maximum length seetn so far*/
     char line[MAXLINE];         /* current input line*/
     char longest[MAXLINE];      /* longest line saved here */
+    char substr[MAXLINE];
 
     // max = 0;
     while ((len = getline(line, MAXLINE)) > 0)
@@ -112,9 +113,9 @@ int main()
     //     printf("The longest line is %d characters long.", max);
     //     printf("\n");
     //     printf("The line is: %s", longest);
-    // rm_tr_blank_tabs(char o[], char n[])
+        char line = rm_tr_blank_tabs(line, substr);
         
-    return 0;
+    return line;
 };
 
 
