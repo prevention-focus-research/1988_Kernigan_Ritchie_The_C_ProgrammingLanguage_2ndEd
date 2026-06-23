@@ -249,3 +249,96 @@ char *ptr;
 ptr = "A"; // Correct: Points to the string literal "A"
 
 ```
+
+
+
+
+
+#### PROMPT
+using the ANSI C (`-std=c89`), write a program that satisfies the following statement: "Write a program to remove trailing blanks and tabs from each line of input, and to delete entirely blank lines."
+
+#### RESPONSE:
+Here is a complete ANSI C (`-std=c89`) program that reads from standard input, strips trailing spaces and tabs from each line, and completely skips lines that become entirely empty after stripping.
+
+To remain strictly compliant with C89, all variables are declared at the beginning of their respective blocks, and standard, widely compatible constructs are used.
+
+```c
+#include <stdio.h>
+
+#define MAXLINE 1000
+
+int get_line(char s[], int lim);
+int remove_trailing(char s[], int len);
+
+int main(void) {
+    char line[MAXLINE];
+    int len;
+
+    /* Read each line from standard input */
+    while ((len = get_line(line, MAXLINE)) > 0) {
+        /* Clean the line and get its new length */
+        len = remove_trailing(line, len);
+        
+        /* If the line is not entirely blank, print it */
+        if (len > 0) {
+            printf("%s", line);
+        }
+    }
+
+    return 0;
+}
+
+/* get_line: read a line into s, return length (includes trailing newline) */
+int get_line(char s[], int lim) {
+    int c, i;
+
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
+        s[i] = c;
+    }
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
+}
+
+/* remove_trailing: removes trailing blanks and tabs; adjusts newline if present */
+int remove_trailing(char s[], int len) {
+    int i = len - 1;
+
+    /* Move backward past the newline character if it exists */
+    if (i >= 0 && s[i] == '\n') {
+        i--;
+    }
+
+    /* Keep moving backward past any spaces or tabs */
+    while (i >= 0 && (s[i] == ' ' || s[i] == '\t')) {
+        i--;
+    }
+
+    /* If we didn't back up to the very beginning, we preserve the newline */
+    if (i >= 0) {
+        s[++i] = '\n';
+        s[++i] = '\0';
+    } else {
+        /* The line is entirely blank */
+        s[0] = '\0';
+    }
+
+    return i;
+}
+
+```
+
+### How It Works
+
+* **`get_line`**: Safely grabs a chunk of text up to a newline character, mirroring the classic K&R style approach. It returns the total length of the string, ensuring we know exactly where to start looking backward.
+* **`remove_trailing`**:
+* It starts scanning from the end of the string (`len - 1`).
+* It ignores the `\n` temporarily to look at the actual text characters before it.
+* It loops backward as long as it encounters a space (`' '`) or a tab (`'\t'`).
+* Once it hits a valid character, it appends the `\n` back right after it and terminates the string with `\0`. If it runs all the way back to index `-1`, it means the line was nothing but whitespace, so it clears the string completely.
+
+
+* **`main`**: Filters out the results. If `remove_trailing` returns a length of `0`, the program silently drops the line instead of printing an empty newline.

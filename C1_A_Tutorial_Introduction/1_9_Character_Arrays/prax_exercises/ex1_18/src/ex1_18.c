@@ -5,17 +5,22 @@ and to delete entirely blank lines. */
 
 #include <stdio.h>
 
-#define MAXLINE 1000    /* Maximum input line length */
-#define LIMIT 80        /* Threshold for printing */
+#define MAXLINE 1000
 
-int getline(char line[], int maxline);
+int get_line(char s[], int lim);
+int remove_trailing(char s[], int len);
 
-int main() {
-    int len;                /* current line length */
-    char line[MAXLINE];     /* current input line */
+int main(void) {
+    char line[MAXLINE];
+    int len;
 
+    /* Read each line from standard input */
     while ((len = get_line(line, MAXLINE)) > 0) {
-        if (len > LIMIT) {
+        /* Clean the line and get its new length */
+        len = remove_trailing(line, len);
+        
+        /* If the line is not entirely blank, print it */
+        if (len > 0) {
             printf("%s", line);
         }
     }
@@ -23,11 +28,10 @@ int main() {
     return 0;
 }
 
-/* Function to read a line into s, return length */
+/* get_line: read a line into s, return length (includes trailing newline) */
 int get_line(char s[], int lim) {
-    int c, i, nt, nb;
+    int c, i;
 
-    nb = nt = 0;    
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i) {
         s[i] = c;
     }
@@ -35,10 +39,32 @@ int get_line(char s[], int lim) {
         s[i] = c;
         ++i;
     }
-    if (c == '\t' || c == '\b') {
-       s[i] = s[i-1]; 
-       i--;
-    }
     s[i] = '\0';
+    return i;
+}
+
+/* remove_trailing: removes trailing blanks and tabs; adjusts newline if present */
+int remove_trailing(char s[], int len) {
+    int i = len - 1;
+
+    /* Move backward past the newline character if it exists */
+    if (i >= 0 && s[i] == '\n') {
+        i--;
+    }
+
+    /* Keep moving backward past any spaces or tabs */
+    while (i >= 0 && (s[i] == ' ' || s[i] == '\t')) {
+        i--;
+    }
+
+    /* If we didn't back up to the very beginning, we preserve the newline */
+    if (i >= 0) {
+        s[++i] = '\n';
+        s[++i] = '\0';
+    } else {
+        /* The line is entirely blank */
+        s[0] = '\0';
+    }
+
     return i;
 }
