@@ -14,17 +14,15 @@ int remove_trailing(char s[], int len);
 int main(void) {
     char line[MAXLINE];
     char reversed[MAXLINE];
-    int len;
+    int len, c, clen;
 
     /* Read each line from standard input */
     while ((len = get_line(line, MAXLINE)) > 0) {
         /* Clean the line and get its new length */
-        len = remove_trailing(line, len);
-        
-        /* If the line is not entirely blank, print it */
-        if (len > 0) {
-            printf("%s", line);
-        }
+        // HERE -- p. 30!
+        c = line[len-1];
+        putchar(c);
+
     }
 
     return 0;
