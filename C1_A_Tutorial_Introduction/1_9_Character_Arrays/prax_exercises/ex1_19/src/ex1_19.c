@@ -19,7 +19,7 @@ int main(void) {
     /* Read each line from standard input */
     while ((len = get_line(line, MAXLINE)) > 0) {
         /* Clean the line and get its new length */
-        // HERE -- p. 30!
+        // HERE -- p. 30+!
         c = line[len-1];
         putchar(c);
 
