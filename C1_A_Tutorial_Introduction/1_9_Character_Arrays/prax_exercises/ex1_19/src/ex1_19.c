@@ -9,7 +9,7 @@ time. */
 #define MAXLINE 1000
 
 int get_line(char s[], int lim);
-int remove_trailing(char s[], int len);
+void reverse_copy(char to[], char from[], int len);
 
 int main(void) {
     char line[MAXLINE];
@@ -43,28 +43,11 @@ int get_line(char s[], int lim) {
     return i;
 }
 
-/* remove_trailing: removes trailing blanks and tabs; adjusts newline if present */
-int remove_trailing(char s[], int len) {
-    int i = len - 1;
+void reverse_copy(char to[], char from[], int len)
+{
+    int i;
 
-    /* Move backward past the newline character if it exists */
-    if (i >= 0 && s[i] == '\n') {
-        i--;
-    }
-
-    /* Keep moving backward past any spaces or tabs */
-    while (i >= 0 && (s[i] == ' ' || s[i] == '\t')) {
-        i--;
-    }
-
-    /* If we didn't back up to the very beginning, we preserve the newline */
-    if (i >= 0) {
-        s[++i] = '\n';
-        s[++i] = '\0';
-    } else {
-        /* The line is entirely blank */
-        s[0] = '\0';
-    }
-
-    return i;
+    i = 0;
+    while ((to[i] = from[i]) != '\0')
+        ++i;
 }
