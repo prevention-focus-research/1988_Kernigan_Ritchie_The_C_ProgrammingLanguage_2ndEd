@@ -20,9 +20,7 @@ int main(void) {
     while ((len = get_line(line, MAXLINE)) > 0) {
         /* Clean the line and get its new length */
         // HERE -- p. 30+!
-        c = line[len-1];
-        putchar(c);
-
+        reverse_copy(line, reversed, len);
     }
 
     return 0;
@@ -43,11 +41,14 @@ int get_line(char s[], int lim) {
     return i;
 }
 
-void reverse_copy(char to[], char from[], int len)
+void reverse_copy(char original[], char reversed[], int len)
 {
     int i;
 
     i = 0;
-    while ((to[i] = from[i]) != '\0')
+    while (original[i] != '\0') {
+        reversed[len-i] = original[i-1];
         ++i;
+    }
+        
 }
