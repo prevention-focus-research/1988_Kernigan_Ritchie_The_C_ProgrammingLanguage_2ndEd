@@ -9,18 +9,17 @@ time. */
 #define MAXLINE 1000
 
 int get_line(char s[], int lim);
-void reverse_copy(char to[], char from[], int len);
+void reverse_copy(char to[], char from[]);
 
 int main(void) {
     char line[MAXLINE];
     char reversed[MAXLINE];
-    int len, c, clen;
+    int len;
 
     /* Read each line from standard input */
     while ((len = get_line(line, MAXLINE)) > 0) {
-        /* Clean the line and get its new length */
-        // HERE -- p. 30+!
-        reverse_copy(line, reversed, len);
+        reverse_copy(line, reversed);
+        printf("The reversed line is: %s", reversed);
     }
 
     return 0;
@@ -41,14 +40,17 @@ int get_line(char s[], int lim) {
     return i;
 }
 
-void reverse_copy(char original[], char reversed[], int len)
+void reverse_copy(char original[], char reversed[])
 {
-    int i;
+    int i, len, tlen;
 
-    i = 0;
-    while (original[i] != '\0') {
-        reversed[len-i] = original[i-1];
-        ++i;
+    len = get_line(original, MAXLINE);
+    tlen = len-2;
+
+
+    for (i = 0; i <= tlen; ++i) {
+        reversed[i] = original[tlen-i];
     }
-        
+    reversed[tlen+1] = '\n';
+    reversed[len] = '\0';    
 }
