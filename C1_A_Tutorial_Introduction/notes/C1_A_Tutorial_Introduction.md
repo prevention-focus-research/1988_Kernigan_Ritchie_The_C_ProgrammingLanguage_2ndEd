@@ -2113,5 +2113,10 @@ racecar
 The reversed line is: racecar
 ```
 
+## 1.10: EXTERNAL VARIABLES AND SCOPE
 
-<!-- HERE -- ex 1-19, p. 30! -->
+The variables in `main`, such as `line`, `longest`, etc., are private or local to `main`. Because they are declared within `main`, no other function can have dircect access to them. The same is true of the variables in other functions; for example, the variabel `i` in `getline` us unrelated to the `i` in `copy`. Each local variable in a function comes into existence only when the function is called, and disappears when the function is exited. This is why such variables are usually known as *automatic* variables, following terminology in other languages. We will use the term automatic henceforth to refer to these local variables. (*C4* discusses the `static` storage class, in which local variables do retain their values between calls.)
+
+Because automatic variables come and go with function invocation, they do not retain their values from one call to the next, ...
+
+<!-- HERE -- p. 31! -->
