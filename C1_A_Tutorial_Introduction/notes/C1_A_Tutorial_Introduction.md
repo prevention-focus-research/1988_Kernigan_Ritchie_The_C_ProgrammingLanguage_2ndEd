@@ -2117,6 +2117,10 @@ The reversed line is: racecar
 
 The variables in `main`, such as `line`, `longest`, etc., are private or local to `main`. Because they are declared within `main`, no other function can have dircect access to them. The same is true of the variables in other functions; for example, the variabel `i` in `getline` us unrelated to the `i` in `copy`. Each local variable in a function comes into existence only when the function is called, and disappears when the function is exited. This is why such variables are usually known as *automatic* variables, following terminology in other languages. We will use the term automatic henceforth to refer to these local variables. (*C4* discusses the `static` storage class, in which local variables do retain their values between calls.)
 
-Because automatic variables come and go with function invocation, they do not retain their values from one call to the next, ...
+Because automatic variables come and go with function invocation, they do not retain their values from one call to the next, and must be explicitly set upon each entry. If they are not set, they will contain garbage.
 
-<!-- HERE -- p. 31! -->
+As an alternative to automatic variables, it is possible to define variables that are *external* to all functions, that is, variables that can be accessed by name by any function. (This mechanism is rather like Fortran COMMON or Pascal variables declared in the outermost block.) Because external variables are globally accessible, they can be used instead of argument lists to communicate data between functions. Furthermore, because external variables remain in existence permanently, rather than appearing and disappearing as functions are called and exited, they retain their values even after the functions that set them have returned. 
+
+An external variable must be *defined*, exactly once, outside of any function; this sets aside storage for it. The variable must also be *declared* in each function that wants to access it; this states the type of the variable. The declaration may be an explicit `extern` statement or may be impliccit from context. To make the discussion concrete, BKDR will rewrite the longest-line program with the `line`, `longest`, and `max` as external variables. This requires changing the calls, declarations, and bodies of all three functions.
+
+<!-- HERE -- p. 32! -->
