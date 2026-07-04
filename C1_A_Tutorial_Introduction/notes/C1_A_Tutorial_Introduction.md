@@ -2123,4 +2123,70 @@ As an alternative to automatic variables, it is possible to define variables tha
 
 An external variable must be *defined*, exactly once, outside of any function; this sets aside storage for it. The variable must also be *declared* in each function that wants to access it; this states the type of the variable. The declaration may be an explicit `extern` statement or may be impliccit from context. To make the discussion concrete, BKDR will rewrite the longest-line program with the `line`, `longest`, and `max` as external variables. This requires changing the calls, declarations, and bodies of all three functions.
 
-<!-- HERE -- p. 32! -->
+**EXAMPLE PROGRAM**: *get_longest_line_ext_vars.c*
+```c
+#include <stdio.h>
+
+#define MAXLINE 1000        /* maximum input line size */
+
+int max;                    /* maximum length seen so far */
+char line[MAXLINE];         /* current input line */
+char longest[MAXLINE];      /* longest line saved here */
+
+int getline(void);
+void copy(void);
+
+/* print longest input line; specialized version */
+main()
+{
+    int len;
+    extern int max;
+    extern char longest[];
+
+    max = 0;
+    while ((len = getline()) > 0)
+        if (len > max) {
+            max = len;
+            copy();
+        }
+    if (max > 0)    /* there was a line */
+        printf("%s", longest);
+    return 0;
+}
+
+/* getline: specialized version */
+int getline(void)
+{
+    int c, i;
+    extern char line[];
+
+    for (i = 0; i < MAXLINE-1
+        && (c=getchar()) != EOF && c != '\n'; ++i)
+        line[i] = c;
+    if (c == '\n') {
+        line[i] = c;
+        ++i;
+    }
+    line[i] = '\n';
+    return i;
+}
+
+/* copy: specialized version */
+void copy(void){
+    int i;
+    extern char line[], longest[];
+
+    i = 0;
+    while ((longest[i] = line[i]) != '\0')
+        ++i;
+}
+```
+
+### program output:
+```
+hello world
+what is your name?
+what is your name?
+```
+
+<!-- HERE -- p. 33! -->
