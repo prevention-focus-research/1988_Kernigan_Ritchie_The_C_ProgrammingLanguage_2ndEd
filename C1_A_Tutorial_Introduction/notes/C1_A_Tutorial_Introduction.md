@@ -2189,4 +2189,14 @@ what is your name?
 what is your name?
 ```
 
+The external variables in `main`, `getline`, and `copy` are defined by the first lines of the example, which specifies each external variable's type and cause storage to be allocated for them. Syntactically, external definitions are just like definitions of local variables, but since they occur outside of functions, the variables are external. Before a function can use an external variable, the name of the variable must be made known to the function. One way to do this is to write an `extern` declaration in the function; the declaration is the same as before except for the added keyword `extern`. 
+
+In certain circumstances, the `extern` declaration can be omitted. If the definition of an external variable occurs in the source file before its use in pa particular function, then there is no need for an `extern` declaration in the function. The `extern` declarations in `main`, `getline` and `copy` are thus redundant. In fact, common practice is to place definitions of all external variables at the beginning of the source file, and then omit all `extern` declarations.
+
+If the program is several source files, and a variable is defined in *file1* and used in *file2* and *file3*, then `extern` declarations are needed in *file2* and *file3* to connect the occurrences of the variable. The usual practice is to collect `extern` declarations of variables and functions in a separate file, historically called a *header*, that is included by `#include` at the front of each source file. The suffix `.h` is conventional for header names. The functions of the standard library, for example, are declared in headers like `<stdio.h>`. This topic is discussed at length in *C4*, an dthe library itself in *C7* and *Appendix B*. 
+
+Since the specialized versions of `getline` and `copy` have no arguments, logic would suggest that their prototypes at the beginning of the file should be `getline()` and `copy()`. But for compatibility with older C programs the standard takes an empty list as an old-style declaration, and turns off all arugment list checking; the word `void` must be used for an explicitly empty list. BKDR will discus this further in *C4*.
+
+One should note ...
+
 <!-- HERE -- p. 33! -->
