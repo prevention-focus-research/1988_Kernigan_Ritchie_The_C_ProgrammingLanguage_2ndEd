@@ -2197,6 +2197,12 @@ If the program is several source files, and a variable is defined in *file1* and
 
 Since the specialized versions of `getline` and `copy` have no arguments, logic would suggest that their prototypes at the beginning of the file should be `getline()` and `copy()`. But for compatibility with older C programs the standard takes an empty list as an old-style declaration, and turns off all arugment list checking; the word `void` must be used for an explicitly empty list. BKDR will discus this further in *C4*.
 
-One should note ...
+One should note that BKDR using the words *definition* and *declaration* carefully when referring to external variables in this section. "Definition" refers to the place where the variable is created or assigned storage; "declaration" refers to places where the nature of the variable is stated but no sotrage is allocated. 
 
-<!-- HERE -- p. 33! -->
+By the way, there is a tendency to make everything in sight an `extern` variable because it appears to simplify communications -- argument lists are short and variables are always there when one wants them. But external varibles are always there even when one doesn't want them. Relying too heavily on external variables is fraught with peril since it leads to programs whose data connections are not at all obvious -- variables can be chagned in unexpected and even inadvertent ways, and the program is hard to modify. the second version of the longest-line program is inferior to the first, partly for these reasons, and partly because it destroys the generality of two useful functions by wriring into them, the names of the variables they manipulate. 
+
+At this point BKDR have covered what might be called the conventional core of C. With this handful of building blocks, it's possible to write useful programs of considerable size, and it would probably be a good idea if one paused long enough to do so. These exercises suggest programs of somewhat greater complexity than the ones earlier in this chapter. 
+
+**Exercise 1-20**: Write a program `detab` that replaces tabs in the input with the proper number of blanks to space to the next tab stop. Assume a fixed set of tab stops, say every *n* columns. Should *n* be a variable or a symbolic parameter?
+
+<!-- HERE -- p. 34! -->
