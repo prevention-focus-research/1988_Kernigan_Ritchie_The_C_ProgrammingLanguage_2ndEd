@@ -8,10 +8,23 @@ a symbolic parameter? */
 #define MAXLINE 1000;
 
 int my_getline(char line[], int max);
+int mod(int dividend, int divisor);
 
 int main() {
     
     return 0;
+}
+
+int mod(int dividend, int divisor) 
+{
+    int remainder, tmp;
+
+    if (divisor <= dividend) {
+        while (divisor <= dividend) {
+            tmp = dividend;
+            remainder = dividend - divisor;
+        }
+    }
 }
 
 int my_getline(char s[], int lim)
