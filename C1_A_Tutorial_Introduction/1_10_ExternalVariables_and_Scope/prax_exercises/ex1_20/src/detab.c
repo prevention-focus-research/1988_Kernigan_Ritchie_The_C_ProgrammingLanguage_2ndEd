@@ -12,19 +12,26 @@ int mod(int dividend, int divisor);
 
 int main() {
     
+    int remainder;
+
+    remainder =  mod(7,2);
+    printf("The remainder of dividing 7 by 2 is %d.", remainder);
     return 0;
 }
 
 int mod(int dividend, int divisor) 
 {
-    int remainder, tmp;
+    int i;
 
+    i = 1;
     if (divisor <= dividend) {
         while (divisor <= dividend) {
-            tmp = dividend;
-            remainder = dividend - divisor;
+            dividend = dividend - divisor;
+            ++i;
+            divisor = divisor*i;
         }
     }
+    return dividend;
 }
 
 int my_getline(char s[], int lim)
