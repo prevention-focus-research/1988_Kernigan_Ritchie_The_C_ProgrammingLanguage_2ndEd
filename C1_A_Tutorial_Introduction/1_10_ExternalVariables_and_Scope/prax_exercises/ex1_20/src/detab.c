@@ -5,14 +5,18 @@ a symbolic parameter? */
 
 #include <stdio.h>
 
-#define MAXLINE 1000;
+#define MAXLINE 1000
 
 int my_getline(char line[], int max);
 int mod(int dividend, int divisor);
 
 int main() {
     
-    int remainder;
+    int len, remainder;                 /* current line length */
+    int max;                            /* maximum length seetn so far */
+    char line[MAXLINE];                 /* current input line*/
+    char longest[MAXLINE];              /* longest line saved here */
+    
 
     remainder =  mod(7,2);
     printf("The remainder of dividing 7 by 2 is %d.", remainder);
