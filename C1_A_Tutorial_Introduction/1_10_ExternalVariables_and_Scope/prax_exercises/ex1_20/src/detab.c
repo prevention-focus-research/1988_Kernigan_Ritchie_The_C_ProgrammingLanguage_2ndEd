@@ -9,6 +9,7 @@ a symbolic parameter? */
 
 int my_getline(char line[], int max);
 int mod(int dividend, int divisor);
+void copy_detab(char to[], char from[]);
 
 int main() {
     
