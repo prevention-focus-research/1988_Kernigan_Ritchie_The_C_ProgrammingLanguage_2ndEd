@@ -52,3 +52,11 @@ int my_getline(char s[], int lim)
     s[i] = '\0';
     return i;
 }
+
+void copy_detab(char to[], char from[]) {
+    
+    int i=0;
+    
+    while((to[i] = from[i]) != '\0');
+        ++i;
+}
