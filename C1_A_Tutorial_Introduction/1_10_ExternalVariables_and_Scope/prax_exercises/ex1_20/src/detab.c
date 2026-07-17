@@ -18,7 +18,6 @@ int main() {
     char line[MAXLINE];                 /* current input line*/
     char longest[MAXLINE];              /* longest line saved here */
     
-
     remainder =  mod(7,2);
     printf("The remainder of dividing 7 by 2 is %d.", remainder);
     return 0;
