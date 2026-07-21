@@ -21,3 +21,8 @@ Write a C program that reads text from standard input and writes it to standard 
 
 **Design question to think about:**
 Should `n` (the tab stop interval) be a variable that could change at runtime, or a symbolic constant (e.g., defined via `#define`) fixed at compile time? Consider the tradeoffs — for instance, would a user ever want to change the tab width without recompiling? Does hardcoding it simplify the program? This is a design decision K&R wants you to consider, not something with one correct answer.
+
+recipe to accomplish task:
+1. store a line in a character array.
+2. process each character stored in the array
+3. keep track of the line position of each character.
