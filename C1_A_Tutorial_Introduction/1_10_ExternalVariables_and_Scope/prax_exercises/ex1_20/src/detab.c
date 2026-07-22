@@ -10,7 +10,6 @@ a symbolic parameter?
 - You'll need to track the current column position as you read through the input, resetting it appropriately when you hit a newline.
 
 */
-
 #include <stdio.h>
 
 #define MAXLINE 1000

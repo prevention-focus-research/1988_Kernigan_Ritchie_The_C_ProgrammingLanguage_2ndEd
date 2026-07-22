@@ -27,4 +27,10 @@ recipe to accomplish task:
 2. process each character stored in the array
 3. keep track of the line position of each character.
 4. use the current line position to determine the location of the next tab character: this can be tricky. assuming a tab is equal to `n` spaces, we can keep track of the number of tab characters that were passed as we process each line, and after every 'n' characters, we can increment the tab counter which can also be used to determine how many spaces to the next tab. 
+
+
+example: assume a tab is 4 characters
+`'abc\td'`, should be transformed to `'abc    d'`
+
+
 5. if there is a tab character, then add a number of spaces to the output line equal to the distance between the current line position and the next character. 
