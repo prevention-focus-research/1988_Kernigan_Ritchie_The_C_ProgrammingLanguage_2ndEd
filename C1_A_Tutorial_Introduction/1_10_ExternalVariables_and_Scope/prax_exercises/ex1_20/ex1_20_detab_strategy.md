@@ -31,6 +31,21 @@ recipe to accomplish task:
 
 example: assume a tab is 4 characters
 `'abc\td'`, should be transformed to `'abc    d'`
+tabs stops occur at 1, 5, 9, 
+
+so at the third index (2), we need to add two spaces, so that the next character will be located at position 5?
+
+0:a > a
+1:b > b
+2:c > c
+3:\t > ' '
+4:d > ' '
+5: > ' '
+6: > ' '
+7:d
+8:
+9:
+
 
 
 5. if there is a tab character, then add a number of spaces to the output line equal to the distance between the current line position and the next character. 
