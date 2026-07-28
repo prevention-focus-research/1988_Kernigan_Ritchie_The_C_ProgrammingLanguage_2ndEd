@@ -48,17 +48,17 @@ assume n (length of tab-stop=4), then `>>` marks location of spaced tab stops; *
 >> 8:
    9:
 
-index:    0  1  2  3  4  5  6  7  8  9
-          *  *  *  *  *  *  *  *  *  *
-n=4                   ^           ^
+index:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 
+          *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+n=4                   ^           ^           ^           ^
 line:     a  b  c  \t d
 line_tab: a  b  c     d
 
 line:     \t a  b  c  d
 line_tab: \s \s \s \s a  b  c  d
 
-line:     \t a  b  c  d
-line_tab: \s \s \s \s a  b  c  d
+line:     a  b  c  d  e  f  \t \t g  h
+line_tab: a  b  c  d  e  f  \s \s \s \s \s \s g  h
 
 
 5. if there is a tab character, then add a number of spaces to the output line equal to the distance between the current line position and the next character. 
