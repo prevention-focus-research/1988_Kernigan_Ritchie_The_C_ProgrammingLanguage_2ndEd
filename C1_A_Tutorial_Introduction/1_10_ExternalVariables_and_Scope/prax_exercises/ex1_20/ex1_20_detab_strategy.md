@@ -60,5 +60,9 @@ line_tab: \s \s \s \s a  b  c  d
 line:     a  b  c  d  e  f  \t \t g  h
 line_tab: a  b  c  d  e  f  \s \s \s \s \s \s g  h
 
+need to know current position
+need to know position of `'\t'` char
+need to know position of next tab location based on `n`
+
 
 5. if there is a tab character, then add a number of spaces to the output line equal to the distance between the current line position and the next character. 
