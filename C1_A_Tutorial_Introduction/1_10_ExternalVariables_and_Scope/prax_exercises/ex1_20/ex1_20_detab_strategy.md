@@ -53,12 +53,30 @@ index:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
 n=4                   ^           ^           ^           ^
 line:     a  b  c  \t d
 line_tab: a  b  c     d
+int cur_pos: 3
+int tab_pos: 3
+int next_tab_pos: 4
+spaces_to_add: next_tab_pos - tab_pos: 1
 
 line:     \t a  b  c  d
 line_tab: \s \s \s \s a  b  c  d
+int cur_pos: 0
+int tab_pos: 0
+int next_tab_pos: 4
+spaces_to_add: next_tab_pos - tab_pos: 4
 
 line:     a  b  c  d  e  f  \t \t g  h
 line_tab: a  b  c  d  e  f  \s \s \s \s \s \s g  h
+int cur_pos: 6
+int tab_pos: 6
+int next_tab_pos: 8
+spaces_to_add: next_tab_pos - tab_pos: 2
+
+int cur_pos: 3
+int tab_pos: 3
+int next_tab_pos: 4
+spaces_to_add: next_tab_pos - tab_pos: 1
+
 
 need to know current position
 need to know position of `'\t'` char
