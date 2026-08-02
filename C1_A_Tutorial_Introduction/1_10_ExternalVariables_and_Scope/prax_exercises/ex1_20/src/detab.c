@@ -15,7 +15,7 @@ a symbolic parameter?
 #define MAXLINE 1000
 
 int my_getline(char line[], int max);
-int mod(int dividend, int divisor);
+int modulus(int dividend, int divisor);
 void copy_detab(char to[], char from[]);
 
 int main() {
@@ -25,12 +25,12 @@ int main() {
     char line[MAXLINE];                 /* current input line*/
     char longest[MAXLINE];              /* longest line saved here */
     
-    remainder =  mod(7,2);
+    remainder =  modulus(7,2);
     printf("The remainder of dividing 7 by 2 is %d.", remainder);
     return 0;
 }
 
-int mod(int dividend, int divisor) 
+int modulus(int dividend, int divisor) 
 {
     int i;
 
