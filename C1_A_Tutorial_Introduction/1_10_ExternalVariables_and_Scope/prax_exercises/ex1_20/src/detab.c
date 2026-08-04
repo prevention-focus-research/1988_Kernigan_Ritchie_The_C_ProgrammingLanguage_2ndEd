@@ -20,14 +20,28 @@ void copy_detab(char to[], char from[]);
 
 int main() {
     
-    int len, remainder;                 /* current line length */
-    int max;                            /* maximum length seetn so far */
-    char line[MAXLINE];                 /* current input line*/
-    char longest[MAXLINE];              /* longest line saved here */
+    int len, remainder, n, ntabs, tabpos;   /* current line length */
+    int max;                                /* maximum length seetn so far */
+    char line[MAXLINE];                     /* current input line*/
+    char longest[MAXLINE];                  /* longest line saved here */
     
-    remainder =  modulus(7,2);
-    printf("The remainder of dividing 7 by 2 is %d.", remainder);
-    return 0;
+    // remainder =  modulus(7,2);
+    // printf("The remainder of dividing 7 by 2 is %d.", remainder);
+    // return 0;
+
+    while ((len = my_getline(line, max)) > 0) {
+        for (int i=0; i<len; ++i) {
+            if (line[i] == '\t') {
+                // HERE!
+            }
+        }
+    }
+
+
+
+
+
+
 }
 
 int modulus(int dividend, int divisor) 
