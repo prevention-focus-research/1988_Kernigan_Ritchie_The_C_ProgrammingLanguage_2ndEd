@@ -31,8 +31,11 @@ int main() {
 
     while ((len = my_getline(line, max)) > 0) {
         for (int i=0; i<len; ++i) {
+            if (i > n) {
+                
+            }
             if (line[i] == '\t') {
-                // HERE!
+                
             }
         }
     }
