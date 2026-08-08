@@ -84,5 +84,4 @@ need to know position of next tab location based on `n` and relative to current 
 need to add necessary spaces to move cursor to next non-tab position. 
 need to know how many tab stops have been passed by current position in the line, to calculaet the next position.
 
-
 5. if there is a tab character, then add a number of spaces to the output line equal to the distance between the current line position and the next character. 
