@@ -25,18 +25,17 @@ int main() {
     char line[MAXLINE];                     /* current input line*/
     char longest[MAXLINE];                  /* longest line saved here */
     
-    /* 
+    
     remainder =  modulus(7,2);
     printf("The remainder of dividing 7 by 2 is %d.", remainder);
     return 0;
-    */
-
-    
+       
+    int i;
 
     while ((len = my_getline(line, max)) > 0) {
-        for (int i=0; i<len; ++i) {
-            if (i > n) {
-                
+        for (i = 0; i < len; ++i) {
+            if (i > 0 && modulus(n,i) == 0) {
+                ++ntabs;
             }
             if (line[i] == '\t') {
                 
@@ -51,12 +50,10 @@ int modulus(int dividend, int divisor)
     int i;
 
     i = 1;
-    if (divisor <= dividend) {
-        while (divisor <= dividend) {
-            dividend = dividend - divisor;
-            ++i;
-            divisor = divisor*i;
-        }
+    while (divisor <= dividend) {
+        dividend = dividend - divisor;
+        ++i;
+        divisor = divisor*i;
     }
     return dividend;
 }
