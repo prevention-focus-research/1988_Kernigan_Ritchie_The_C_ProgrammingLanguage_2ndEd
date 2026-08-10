@@ -34,7 +34,7 @@ int main() {
 
     while ((len = my_getline(line, max)) > 0) {
         for (i = 0; i < len; ++i) {
-            if (i > 0 && modulus(n,i) == 0) {
+            if (i > 0 && modulus(i,n) == 0) {
                 ++ntabs;
             }
             if (line[i] == '\t') {
