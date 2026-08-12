@@ -37,6 +37,7 @@ int main() {
         for (i = 0; i < len; ++i) {
             if (i > 0 && modulus(i,n) == 0) {
                 ++ntabs;
+                nexttabpos = 0;
             }
             if (line[i] == '\t') {
                 
