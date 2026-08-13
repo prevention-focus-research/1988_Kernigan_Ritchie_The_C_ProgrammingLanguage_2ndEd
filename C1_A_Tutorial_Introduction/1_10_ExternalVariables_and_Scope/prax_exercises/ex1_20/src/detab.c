@@ -31,13 +31,12 @@ int main() {
     return 0;
  */       
     
-    int i, currentpos, ntabs, nexttabpos;
+    int i, currentpos, ntabs, nexttabpos=0;
 
     while ((len = my_getline(line, max)) > 0) {
         for (i = 0; i < len; ++i) {
             if (i > 0 && modulus(i,n) == 0) {
-                ++ntabs;
-                nexttabpos = 0;
+                ++ntabs;                
             }
             if (line[i] == '\t') {
                 
