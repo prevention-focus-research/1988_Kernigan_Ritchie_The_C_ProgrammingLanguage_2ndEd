@@ -48,6 +48,15 @@ assume n (length of tab-stop=4), then `>>` marks location of spaced tab stops; *
 >> 8:
    9:
 
+
+how to calcualte the next tab position based on the current line position
+initially, next tab position set to n
+so if current line position is less than n, the the next tab position will be located
+(next tab position - current line position) spaces.
+
+if current line position is greater than n, 
+
+
 index:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 
           *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
 n=4                   ^           ^           ^           ^
@@ -55,7 +64,7 @@ line:     a  b  c  \t d
 line_tab: a  b  c     d
 int cur_pos: 3
 int tab_pos: 3
-int next_tab_pos: 4
+int next_tab_pos: 
 spaces_to_add: next_tab_pos - tab_pos: 1
 
 line:     \t a  b  c  d
