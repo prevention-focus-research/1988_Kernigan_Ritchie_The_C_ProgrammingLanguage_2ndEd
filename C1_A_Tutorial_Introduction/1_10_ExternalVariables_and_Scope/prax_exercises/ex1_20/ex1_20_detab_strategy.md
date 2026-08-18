@@ -57,7 +57,7 @@ so if current line position is less than n, the the next tab position will be lo
 every time the current position moves, we have to check if it exceeds the positon of the next tab stop.
 I think we can do this with the modulo operator.
 
-then when the current line position does cross, we increment `num_tab_stops_crossed` variable, which keeps track of the number of tab stops crossed. 
+then when the current line position *does* cross, we increment `num_tab_stops_crossed` variable, which keeps track of the number of tab stops crossed. then, we can calculate the location of the next tab position (variable name = `next_tab_pos`) as `num_tab_stops_cross * n + n`. we can initialize `num_tab_stops_corssed` to `0`, so that the
 
 
 index:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 
