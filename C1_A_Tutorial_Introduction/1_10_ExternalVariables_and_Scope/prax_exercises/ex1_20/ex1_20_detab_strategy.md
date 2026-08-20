@@ -59,7 +59,7 @@ I think we can do this with the modulo operator.
 
 then when the current line position (variable name = `line_cursor`) *does* cross, we increment `num_tab_stops_crossed` variable, which keeps track of the number of tab stops crossed. then, we can calculate the location of the next tab position (variable name = `next_tab_pos`) as `num_tab_stops_cross * n + n`. we can initialize `num_tab_stops_corssed` to `0`, so that the first tab position (variable name = `next_tab_pos`) will be at `n`. 
 
-then the number of spaces we need to add whenever we encounter a tab character `"\t"` will be the difference between the current line position (variable name = `line_cursor`)
+then the number of spaces we need to add to the line from our current line cursor position whenever we encounter a tab character `"\t"` will be the difference between the current line position (variable name = `line_cursor`) and the value of the next tab stop position (variable name =`next_tab_pos`).
 
 <!-- HERE! -->
 
