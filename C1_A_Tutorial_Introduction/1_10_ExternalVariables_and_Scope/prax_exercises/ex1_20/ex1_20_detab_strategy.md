@@ -61,7 +61,7 @@ Then when the current line position (variable name = `line_cursor`) *does* cross
 
 then the number of spaces we need to add to the line from our current line cursor position whenever we encounter a tab character `"\t"` will be the difference between the current line position (variable name = `line_cursor`) and the value of the next tab stop position (variable name =`next_tab_pos`).
 
-how do we insert spaces into the new line -- we have to keep i the same, pause, then use another index to add the number of spaces, then continue with the rest of the line using the original index i. 
+how do we insert spaces into the new line -- we have to keep i the same, pause, then use another index to add the number of spaces (variable name = `space_cursor`), then continue with the rest of the line using the original index i. 
 
 
 index:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 

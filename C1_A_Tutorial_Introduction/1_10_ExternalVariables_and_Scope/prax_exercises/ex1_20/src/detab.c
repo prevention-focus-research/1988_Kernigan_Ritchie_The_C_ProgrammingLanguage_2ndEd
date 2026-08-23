@@ -32,11 +32,15 @@ int main() {
  */       
     
     int i, currentpos, ntabs, nexttabpos=0;
+    int line_cursor, space_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
+
+    next_tab_pos = num_tab_stops_crossed*n + n;
 
     while ((len = my_getline(line, max)) > 0) {
         for (i = 0; i < len; ++i) {
-            if (i > 0 && modulus(i,n) == 0) {
-                ++ntabs;                
+            if (i > next_tab_pos) {
+                ++num_tab_stops_crossed;                
+                next_tab_pos = num_tab_stops_crossed*n + n;
             }
             if (line[i] == '\t') {
                 
