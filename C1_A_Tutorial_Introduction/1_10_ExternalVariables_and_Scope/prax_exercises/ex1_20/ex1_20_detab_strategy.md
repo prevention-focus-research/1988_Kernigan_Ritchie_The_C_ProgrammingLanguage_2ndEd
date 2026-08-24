@@ -63,6 +63,12 @@ then the number of spaces we need to add to the line from our current line curso
 
 how do we insert spaces into the new line -- we have to keep i the same, pause, then use another index to add the number of spaces (variable name = `space_cursor`), then continue with the rest of the line using the original index i. 
 
+so we continue with i, then we get a tab character, calculate the number of spaces we need to insert, using its own counter, then the next character after the tab-related spaces will be the value pointing to the i following the tab character.,
+
+as soon as we encounter a tab character, we can assign the next character to a variable storing the value of the next character, or perhaps it would be better to store the position of the next character, and then once. 
+
+Or we can have i traversing the original line, and j traversing the detab_line, being sure to increase the value of j, as we add the number of spaces, then we assign the next character after the tab from the original line, to the position on the detab_line.
+
 
 index:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 
           *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
