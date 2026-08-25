@@ -43,7 +43,7 @@ int main() {
                 next_tab_pos = num_tab_stops_crossed*n + n;
             }
             if (line[i] == '\t') {
-                
+                /* here! */
             }
         }
     }
