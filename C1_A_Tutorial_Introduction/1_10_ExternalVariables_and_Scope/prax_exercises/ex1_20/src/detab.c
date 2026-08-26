@@ -32,7 +32,7 @@ int main() {
  */       
     
     int i, currentpos, ntabs, nexttabpos=0;
-    int line_cursor, space_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
+    int line_cursor, num_spaces_to_add, space_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
 
     next_tab_pos = num_tab_stops_crossed*n + n;
 
@@ -43,7 +43,13 @@ int main() {
                 next_tab_pos = num_tab_stops_crossed*n + n;
             }
             if (line[i] == '\t') {
-                /* here! */
+                line_cursor = i;
+                num_spaces_to_add = next_tab_pos - line_cursor;
+                for (space_cursor = 0; space_cursor < num_spaces_to_add; ++space_cursor) {
+                    /* HERE! */
+                }
+            } else {
+                tabline[i] = line[i];
             }
         }
     }
