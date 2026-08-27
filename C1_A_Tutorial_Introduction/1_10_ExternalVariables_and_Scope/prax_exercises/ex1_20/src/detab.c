@@ -45,9 +45,11 @@ int main() {
             if (line[i] == '\t') {
                 line_cursor = i;
                 num_spaces_to_add = next_tab_pos - line_cursor;
-                for (space_cursor = 0; space_cursor < num_spaces_to_add; ++space_cursor) {
-                    /* HERE! */
+                for (space_cursor = line_cursor; space_cursor < num_spaces_to_add; ++space_cursor) {
+                    tabline[space_cursor] = ' ';
                 }
+                /* need to figure out how to resume line copying 
+                after spaces are added for a tab character  */
             } else {
                 tabline[i] = line[i];
             }
