@@ -47,7 +47,8 @@ int main() {
                 num_spaces_to_add = next_tab_pos - line_cursor;
                 for (space_cursor = 0; space_cursor < num_spaces_to_add; ++space_cursor) {
                     tabline[line_cursor + space_cursor] = ' ';
-                }                
+                }
+                ++i;
             } else {
                 tabline[i] = line[i];
             }
