@@ -32,7 +32,7 @@ int main() {
  */       
     
     int i, currentpos, ntabs, nexttabpos=0;
-    int line_cursor, num_spaces_to_add, space_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
+    int line_cursor, num_spaces_to_add, space_cursor, tab_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
 
     next_tab_pos = num_tab_stops_crossed*n + n;
 
@@ -49,8 +49,9 @@ int main() {
                     tabline[line_cursor + space_cursor] = ' ';
                 }
                 ++i;
+                tab_cursor=i;
             } else {
-                tabline[i] = line[i];
+                tabline[tab_cursor] = line[i];
             }
         }
     }
