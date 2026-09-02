@@ -31,7 +31,7 @@ int main() {
     return 0;
  */       
     
-    int i, currentpos, ntabs, nexttabpos=0;
+    int i, currentpos, ntabs_chars, nexttabpos=0;
     int line_cursor, num_spaces_to_add, space_cursor, tab_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
 
     next_tab_pos = num_tab_stops_crossed*n + n;
@@ -43,15 +43,20 @@ int main() {
                 next_tab_pos = num_tab_stops_crossed*n + n;
             }
             if (line[i] == '\t') {
-                tab_cursor = i;
+                line_cursor = i;
                 num_spaces_to_add = next_tab_pos - line_cursor;
                 for (space_cursor = 0; space_cursor < num_spaces_to_add; ++space_cursor) {
-                    tabline[tab_cursor + space_cursor] = ' ';
+                    tabline[line_cursor + space_cursor] = ' ';
                 }
                 ++i;
-                tab_cursor=tab_cursor + space_cursor;
+                ++ntabs_chars;
+                tab_cursor=line_cursor + space_cursor;
             } else {
-                tabline[tab_cursor] = line[i];
+                if (ntabs_chars > 0) {
+                    tabline[tab_cursor] = line[i];
+                } else {
+                    tabline[i] = line[i];
+                }
             }
         }
     }
