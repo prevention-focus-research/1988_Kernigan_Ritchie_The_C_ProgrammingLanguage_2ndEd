@@ -20,7 +20,7 @@ void copy_detab(char to[], char from[]);
 
 int main() {
     
-    int len, remainder, n;   /* current line length */
+    int len, remainder;   /* current line length */
     int max;                                /* maximum length seetn so far */
     char line[MAXLINE];                     /* current input line*/
     char tabline[MAXLINE];                  /* tabline line saved here */
@@ -60,7 +60,9 @@ int main() {
             }
         }
     }
-
+    printf("original line: %s\n", line);
+    printf("%s", tabline);
+    return 0;
 }
 
 int modulus(int dividend, int divisor) 
