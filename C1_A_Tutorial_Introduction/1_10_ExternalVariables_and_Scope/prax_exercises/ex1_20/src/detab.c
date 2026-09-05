@@ -31,7 +31,7 @@ int main() {
     return 0;
  */       
     
-    int i, currentpos, ntabs_chars, nexttabpos=0;
+    int i, currentpos, ntabs_chars=0, nexttabpos=0;
     int line_cursor, num_spaces_to_add, space_cursor, tab_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
 
     next_tab_pos = num_tab_stops_crossed*n + n;
