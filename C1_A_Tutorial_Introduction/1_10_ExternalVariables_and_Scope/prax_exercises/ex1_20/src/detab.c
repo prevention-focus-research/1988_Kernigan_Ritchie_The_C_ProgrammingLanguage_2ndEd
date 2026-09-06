@@ -17,6 +17,7 @@ a symbolic parameter?
 int my_getline(char line[], int max);
 int modulus(int dividend, int divisor);
 void copy_detab(char to[], char from[]);
+void display_line(char line[]);
 
 int main() {
     
@@ -60,8 +61,10 @@ int main() {
             }
         }
     }
-    printf("original line: %s\n", line);
-    printf("%s", tabline);
+    printf("original line:\n");
+    display_line(line);
+    printf("detabbed line:\n");
+    display_line(tabline);    
     return 0;
 }
 
@@ -97,5 +100,13 @@ void copy_detab(char to[], char from[]) {
     int i=0;
     
     while((to[i] = from[i]) != '\0');
+        ++i;
+}
+
+void display_line(char line[]) {
+    int i = 0;
+
+    while(line[i] != '\0');
+        printf("%c", line[i]);
         ++i;
 }
