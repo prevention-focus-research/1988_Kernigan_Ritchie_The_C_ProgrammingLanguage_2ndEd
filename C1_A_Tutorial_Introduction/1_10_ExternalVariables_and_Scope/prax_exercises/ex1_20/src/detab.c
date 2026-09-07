@@ -60,12 +60,17 @@ int main() {
                 }
             }
         }
+
+        printf("original line:\n");
+        display_line(line);
+        printf("detabbed line:\n");
+        display_line(tabline);    
+
+
     }
-    printf("original line:\n");
-    display_line(line);
-    printf("detabbed line:\n");
-    display_line(tabline);    
+
     return 0;
+
 }
 
 int modulus(int dividend, int divisor) 
@@ -104,6 +109,7 @@ void copy_detab(char to[], char from[]) {
 }
 
 void display_line(char line[]) {
+
     int i = 0;
 
     while(line[i] != '\0');
