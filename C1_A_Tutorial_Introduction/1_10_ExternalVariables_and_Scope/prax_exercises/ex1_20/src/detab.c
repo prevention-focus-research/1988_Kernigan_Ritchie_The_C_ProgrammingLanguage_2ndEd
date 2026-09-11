@@ -58,6 +58,16 @@ int main() {
                 printf("inside end of 2nd if (tab char identified):\n");
                 display_line(line);
                 display_line(tabline);
+            } else if (line[i] == '\n') {
+                if (ntabs_chars > 0) {
+                    tabline[tab_cursor] = '\n';
+                    ++i;
+                    ++tab_cursor;
+                } else {
+                    tabline[i] = '\n';
+                    ++i;
+                    ++tab_cursor;
+                }
             } else {
                 if (ntabs_chars > 0) {
                     tabline[tab_cursor] = line[i];
