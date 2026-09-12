@@ -114,3 +114,5 @@ need to know how many tab stops have been passed by current position in the line
 
 
 Program received signal SIGBUS, Bus error
+
+Ok so the problem (might be) related to not having added the 'termination' character `'\0'` to the end of the string array, becuase that's the only way for the compiler to know the location of the string's end!

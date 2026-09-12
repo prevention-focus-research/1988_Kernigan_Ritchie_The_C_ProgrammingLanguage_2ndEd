@@ -41,10 +41,7 @@ int main() {
         for (i = 0; i < len; ++i) {
             if (i > next_tab_pos) {
                 ++num_tab_stops_crossed;                
-                next_tab_pos = num_tab_stops_crossed*n + n;
-                printf("inside first if:\n");
-                display_line(line);
-                display_line(tabline);
+                next_tab_pos = num_tab_stops_crossed*n + n;                
             }
             if (line[i] == '\t') {
                 line_cursor = i;
@@ -55,9 +52,6 @@ int main() {
                 ++i;
                 ++ntabs_chars;
                 tab_cursor=line_cursor + space_cursor;
-                printf("inside end of 2nd if (tab char identified):\n");
-                display_line(line);
-                display_line(tabline);
             } else if (line[i] == '\n') {
                 if (ntabs_chars > 0) {
                     tabline[tab_cursor] = '\n';
@@ -71,23 +65,11 @@ int main() {
             } else {
                 if (ntabs_chars > 0) {
                     tabline[tab_cursor] = line[i];
-                    printf("inside if of else:\n");
-                    display_line(line);
-                    display_line(tabline);
                 } else {
                     tabline[i] = line[i];
-                    printf("inside else of else:\n");
-                    display_line(line);
-                    display_line(tabline);
                 }
             }
         }
-
-        /* printf("original line:\n");
-        display_line(line);
-        printf("detabbed line:\n");
-        display_line(tabline);     */
-
 
     }
 
