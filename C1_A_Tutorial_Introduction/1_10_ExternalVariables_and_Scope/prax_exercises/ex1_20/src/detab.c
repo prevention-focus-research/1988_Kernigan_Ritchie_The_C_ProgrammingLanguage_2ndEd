@@ -16,10 +16,10 @@ a symbolic parameter?
 
 int my_getline(char line[], int max);
 int modulus(int dividend, int divisor);
-void copy_detab(char to[], char from[]);
+void copy_detab(char to[], char from[], int to_len);
 void display_line(char line[]);
 
-int main() {
+int hello() {
     
     int len, remainder;   /* current line length */
     int max;                                /* maximum length seetn so far */
@@ -104,12 +104,14 @@ int my_getline(char s[], int lim)
     return i;
 }
 
-void copy_detab(char to[], char from[]) {
+void copy_detab(char to[], char from[], int to_len) {
     
-    int i=0;
-    
-    while((to[i] = from[i]) != '\0');
-        ++i;
+    int i;
+
+    for (i = 0; i < to_len && to[i] != '\n'; ++i) {
+        
+    }
+
 }
 
 void display_line(char line[]) {
