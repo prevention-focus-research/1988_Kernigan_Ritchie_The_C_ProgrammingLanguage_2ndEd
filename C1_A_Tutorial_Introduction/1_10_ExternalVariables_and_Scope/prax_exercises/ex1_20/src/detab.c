@@ -106,14 +106,14 @@ int my_getline(char s[], int lim)
 
 void copy_detab(char to[], char from[], int to_len) {
     
-    int i, currentpos, ntabs_chars=0, nexttabpos=0;
+    int i, ntab_chars=0;
     int line_cursor, num_spaces_to_add, space_cursor, tab_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
 
     next_tab_pos = num_tab_stops_crossed*n + n;
 
     for (i = 0; i < (to_len - 1); ++i) {
         if (to[i] == '\t') {
-            
+            ++ntab_chars;
         }
         from[i] = to[i];
     }
