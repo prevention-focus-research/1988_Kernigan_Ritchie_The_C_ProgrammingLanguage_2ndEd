@@ -113,7 +113,12 @@ void copy_detab(char to[], char from[], int to_len) {
 
     for (i = 0; i < (to_len - 1); ++i) {
         if (to[i] == '\t') {
-            ++ntab_chars;
+            if (i > next_tab_pos) {
+                ++ntab_chars;
+                ++num_tab_stops_crossed;
+                next_tab_pos = num_tab_stops_crossed*n + n;
+            }
+            num_spaces_to_add = next_tab_pos - i;
         }
         from[i] = to[i];
     }
