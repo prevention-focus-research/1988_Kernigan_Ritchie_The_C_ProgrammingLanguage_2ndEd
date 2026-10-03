@@ -121,3 +121,7 @@ Ok so the problem (might be) related to not having added the 'termination' chara
 so we start by copying the line to the 'de-tabbed' line. start the for loop. we need to keep iterating until we reach the `'\n'` character. we need to make the realization of a newline character (`'\n'`) as part of the `for` loop's test, since that signify's the end of reading the line. 
 
 Should we modify the `copy` or the `get_line` function? the `get_line` function reads the input data into a character array, and returns the length of the character array. the length is the full length of the line, including the terminating null character `'\0'`. 
+
+Need to think about how to set the `tab_cursor`, and how it relates to `i`. what would be the values of each of these index variables for the followingdistinct cases:
+1. no tab chars have been encountered
+2. a tab character has been encountered.

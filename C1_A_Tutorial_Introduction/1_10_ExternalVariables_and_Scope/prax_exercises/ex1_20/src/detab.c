@@ -112,8 +112,7 @@ void copy_detab(char from[], char to[], int to_len) {
     next_tab_pos = num_tab_stops_crossed*n + n;
 
     for (i = 0; i < (to_len - 1); ++i) {
-        tab_cursor = i;
-
+        
         if (i > next_tab_pos) {
                 ++num_tab_stops_crossed;
                 next_tab_pos = num_tab_stops_crossed*n + n;
@@ -121,8 +120,8 @@ void copy_detab(char from[], char to[], int to_len) {
 
         if (from[i] == '\t') {
             ++ntab_chars;
-            ++i;            
-
+            
+            tab_cursor = i;
             num_spaces_to_add = next_tab_pos - i;
             
             /* adding spaces to the "detabbed" line, and  */
@@ -130,7 +129,10 @@ void copy_detab(char from[], char to[], int to_len) {
                 tab_cursor = tab_cursor + space_cursor;
                 to[tab_cursor] = ' ';
             }
+
+            ++i;            
         }
+        
         to[tab_cursor] = from[i];
     }
         /* at the end, we need to close the line with a null character */
