@@ -110,6 +110,7 @@ void copy_detab(char from[], char to[], int to_len) {
     int line_cursor, num_spaces_to_add, space_cursor, tab_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
 
     next_tab_pos = num_tab_stops_crossed*n + n;
+    tab_cursor = 0;
 
     for (i = 0; i < (to_len - 1); ++i) {
         
