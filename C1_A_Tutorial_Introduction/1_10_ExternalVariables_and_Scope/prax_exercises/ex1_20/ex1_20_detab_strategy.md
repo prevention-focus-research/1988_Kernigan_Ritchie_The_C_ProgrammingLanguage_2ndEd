@@ -125,8 +125,10 @@ Should we modify the `copy` or the `get_line` function? the `get_line` function 
 Need to think about how to set the `tab_cursor`, and how it relates to `i`. what would be the values of each of these index variables for the followingdistinct cases:
 1. no tab chars have been encountered
 
-`tab_cursor` and `i` should have the same value, because we would essentially be copying the original line to the other line. however, the challenge is, when do we set the value for `tab_cursor`, perhaps, it should be initialized to 0, and then updated later? Perhaps there is a third variable that can somehow keep track of different things? perhaps a `line_cursor` for the original line; and `tab_cursor` for the 'detabbed' line? 
+`tab_cursor` and `i` should have the same value, because we would essentially be copying the original line to the other line. however, the challenge is, when do we set the value for `tab_cursor`, perhaps, it should be initialized to 0, and then updated later? Perhaps there is a third variable that can somehow keep track of different things? perhaps a `line_cursor` for the original line; and `tab_cursor` for the 'detabbed' line? `line_cursor` and `tab_cursor` would have the same value throughout if a tab character is never encountered.
 
 2. a tab character has been encountered for the first time.
 
-3. a tab character has been encoutered for a subsequent time.
+`line_cursor`, and `tab_cursor` will both be set to `i`, the spaces are added to `tab_line`, then both `line_cursor` and `i` will be incremented after the spaces are processed. `line_cursor` will always have the same value as `i`. so in some sense, it is redundant?
+
+3. a tab character has been encoutered for a subsequent time.  
