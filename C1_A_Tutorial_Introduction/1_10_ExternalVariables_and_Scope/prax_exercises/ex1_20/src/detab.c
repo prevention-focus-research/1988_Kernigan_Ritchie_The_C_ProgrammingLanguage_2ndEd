@@ -114,6 +114,8 @@ void copy_detab(char from[], char to[], int to_len) {
 
     for (i = 0; i < (to_len - 1); ++i) {
         
+        line_cursor = i;
+
         if (i > next_tab_pos) {
                 ++num_tab_stops_crossed;
                 next_tab_pos = num_tab_stops_crossed*n + n;
@@ -128,8 +130,7 @@ void copy_detab(char from[], char to[], int to_len) {
                 tab_cursor = tab_cursor + space_cursor;
                 to[tab_cursor] = ' ';
             }
-
-            ++i;            
+         
         }
         
         to[tab_cursor] = from[i];
