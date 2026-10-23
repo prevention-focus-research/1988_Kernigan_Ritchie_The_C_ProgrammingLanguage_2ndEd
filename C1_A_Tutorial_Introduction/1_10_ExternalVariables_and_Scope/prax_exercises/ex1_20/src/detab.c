@@ -107,10 +107,10 @@ int my_getline(char s[], int lim)
 void copy_detab(char from[], char to[], int to_len) {
     
     int i, ntabchars;
-    int line_cursor, num_spaces_to_add, space_cursor, tab_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
+    int num_spaces_to_add, space_cursor, tab_cursor, next_tab_pos, num_tab_stops_crossed=0, n=4;
 
     next_tab_pos = num_tab_stops_crossed*n + n;
-    line_cursor = tab_cursor = 0;
+    tab_cursor = 0;
 
     for (i = 0; i < (to_len - 1); ++i) {
         
@@ -122,6 +122,7 @@ void copy_detab(char from[], char to[], int to_len) {
         if (from[i] == '\t') {
             
             ++ntabchars;
+            /* need to think about how to calculate spaces to add (line_cursor v. i) */
             num_spaces_to_add = next_tab_pos - i;
             
             /* adding spaces to the "detabbed" line, and  */
@@ -132,12 +133,12 @@ void copy_detab(char from[], char to[], int to_len) {
          
         }
 
-        line_cursor = i;
-        
-        to[tab_cursor] = from[line_cursor];
+        to[tab_cursor] = from[i];
     }
-        /* at the end, we need to close the line with a null character */
-
+    
+    /* at the end, we need to close the line with a null character */
+    ++tab_cursor;
+    to[tab_cursor] = '\0';
 }
 
 void display_line(char line[]) {
