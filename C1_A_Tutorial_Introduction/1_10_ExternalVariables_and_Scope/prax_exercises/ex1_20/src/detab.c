@@ -122,7 +122,7 @@ void copy_detab(char from[], char to[], int to_len) {
         if (from[i] == '\t') {
             
             ++ntabchars;
-            /* need to think about how to calculate spaces to add (line_cursor v. i) */
+            /* need to think about how to calculate spaces to add (line_cursor v. i)r */
             num_spaces_to_add = next_tab_pos - i;
             
             /* adding spaces to the "detabbed" line, and  */
