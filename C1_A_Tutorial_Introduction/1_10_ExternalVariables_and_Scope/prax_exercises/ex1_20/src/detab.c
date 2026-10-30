@@ -136,7 +136,9 @@ void copy_detab(char from[], char to[], int to_len) {
         to[tab_cursor] = from[i];
     }
     
-    /* at the end, we need to close the line with a null character */
+    /* once we are done processing the `from` line, 
+    and have added all the necessary spaces to the `to` line,
+    we need to close the `to` line with a null character */
     ++tab_cursor;
     to[tab_cursor] = '\0';
 }
