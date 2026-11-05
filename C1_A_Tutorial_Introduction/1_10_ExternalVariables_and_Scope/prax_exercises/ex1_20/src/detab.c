@@ -19,6 +19,20 @@ int modulus(int dividend, int divisor);
 void copy_detab(char to[], char from[], int to_len);
 void display_line(char line[]);
 
+int main() {
+
+    int len, remainder;   /* current line length */
+    int max;                                /* maximum length seetn so far */
+    char line[MAXLINE];                     /* current input line*/
+    char tabline[MAXLINE];                  /* tabline line saved here */
+
+    while ((len=my_getline(line, MAXLINE)) > 0) {
+        copy_detab(tabline, line, len);
+    }
+
+    return 0;
+}
+
 int hello() {
     
     int len, remainder;   /* current line length */
