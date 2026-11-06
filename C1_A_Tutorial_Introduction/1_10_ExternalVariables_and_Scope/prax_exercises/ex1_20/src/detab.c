@@ -30,6 +30,9 @@ int main() {
         copy_detab(tabline, line, len);
     }
 
+    display_line(line);
+    display_line(tabline);
+
     return 0;
 }
 
